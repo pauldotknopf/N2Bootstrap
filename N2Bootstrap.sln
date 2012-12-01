@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N2Bootstrap", "N2Bootstrap\N2Bootstrap.csproj", "{DB1FCCB2-790F-4E56-9DE9-3A6ED9802620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N2Bootstrap.Library", "N2Bootstrap.Library\N2Bootstrap.Library.csproj", "{F56D20CC-ADA1-4492-8789-E45469E826D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB1FCCB2-790F-4E56-9DE9-3A6ED9802620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1FCCB2-790F-4E56-9DE9-3A6ED9802620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1FCCB2-790F-4E56-9DE9-3A6ED9802620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1FCCB2-790F-4E56-9DE9-3A6ED9802620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F56D20CC-ADA1-4492-8789-E45469E826D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F56D20CC-ADA1-4492-8789-E45469E826D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F56D20CC-ADA1-4492-8789-E45469E826D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F56D20CC-ADA1-4492-8789-E45469E826D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
