@@ -1,0 +1,19 @@
+﻿@{
+    Layout = Url.ThemedContent("~/Views/Shared/_Layout.cshtml");
+}
+<div class="span8" role="main">
+    @{ Html.DroppableZone("PreContent").Render(); }
+    @{ Html.RenderPartial("LayoutPartials/Breadcrumb"); }
+    @RenderBody()
+    @{ Html.DroppableZone("PostContent").Render(); }
+</div>
+<aside class="span4" role="complementary">
+    @if (IsSectionDefined("Right"))
+    {
+        <div>@RenderSection("Right")</div>
+    }
+    else
+    {
+        Html.DroppableZone("Right").Render();
+    }
+</aside>
