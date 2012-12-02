@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Web.Hosting;
+using Cassette;
+using Cassette.Scripts;
+using Cassette.Stylesheets;
 using N2.Web;
 
 namespace N2Bootstrap.Library

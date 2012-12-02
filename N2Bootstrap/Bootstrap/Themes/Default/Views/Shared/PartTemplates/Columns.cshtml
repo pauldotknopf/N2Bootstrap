@@ -1,0 +1,19 @@
+﻿@using N2.Collections
+@using N2.Engine
+@using N2.Web.Mvc
+@using N2.Web.Parts
+@model N2Bootstrap.Library.Models.Columns
+@{ 
+    var renderRow = Content.Current.Item.Parent is N2Bootstrap.Library.Models.Columns.Column;
+}
+<div class="clearfix row">
+    @foreach (var column in Content.Current.Item.GetChildren(new TypeFilter(typeof(N2Bootstrap.Library.Models.Columns.Column))).Cast<N2Bootstrap.Library.Models.Columns.Column>())
+    {
+        <div class="span@(column.NumberOfColumns)">
+            @{
+                var zone = Html.DroppableZone(column, "Column");
+                zone.Render();
+            }
+        </div>
+    }
+</div>

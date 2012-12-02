@@ -160,7 +160,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CassetteConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -272,6 +271,8 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Logotype.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\TopNavigation.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\TextPart.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\SliderPart.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Columns.cshtml" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>

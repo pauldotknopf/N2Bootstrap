@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.60.4609.17023\lib\net20\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette">
+      <HintPath>..\packages\Cassette.2.0.0\lib\net40-client\Cassette.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -60,6 +66,7 @@
     <Compile Include="Adapters\IItemAdapter.cs" />
     <Compile Include="Adapters\ModelAdapter.cs" />
     <Compile Include="Adapters\MvcAdapter.cs" />
+    <Compile Include="CassetteConfiguration.cs" />
     <Compile Include="Controllers\LanguageIntersectionController.cs" />
     <Compile Include="Controllers\SharedPagesController.cs" />
     <Compile Include="Controllers\SharedPartsController.cs" />
@@ -75,6 +82,7 @@
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\PageModelBase.cs" />
     <Compile Include="Models\PartModelBase.cs" />
+    <Compile Include="Models\SliderPart.cs" />
     <Compile Include="Models\StartPage.cs" />
     <Compile Include="Models\TextPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
