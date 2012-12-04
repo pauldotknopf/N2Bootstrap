@@ -49,9 +49,6 @@
     <Reference Include="Cassette.Aspnet">
       <HintPath>..\packages\Cassette.Aspnet.2.0.0\lib\net40\Cassette.Aspnet.dll</HintPath>
     </Reference>
-    <Reference Include="Cassette.Less">
-      <HintPath>..\packages\Cassette.Less.2.0.0\lib\net40-client\Cassette.Less.dll</HintPath>
-    </Reference>
     <Reference Include="Cassette.Views">
       <HintPath>..\packages\Cassette.Views.2.0.0\lib\net40\Cassette.Views.dll</HintPath>
     </Reference>
@@ -166,25 +163,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Bootstrap\Themes\Default\Content\custom.css">
-      <DependentUpon>custom.less</DependentUpon>
-    </Content>
-    <Content Include="Bootstrap\Themes\Default\Content\custom.min.css">
-      <DependentUpon>custom.less</DependentUpon>
-    </Content>
     <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings-white.png" />
     <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\bootstrap.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.8.2.js" />
-    <Content Include="Bootstrap\Themes\Metro\Content\custom.css">
-      <DependentUpon>custom.less</DependentUpon>
-    </Content>
-    <Content Include="Bootstrap\Themes\Metro\Content\custom.min.css">
-      <DependentUpon>custom.less</DependentUpon>
-    </Content>
-    <Content Include="Bootstrap\Themes\Metro\Content\less\variables.min.css">
-      <DependentUpon>variables.less</DependentUpon>
-    </Content>
+    <Content Include="Bootstrap\Themes\Metro\Content\Images\google.png" />
     <Content Include="Global.asax" />
     <Content Include="N2\history.txt" />
     <Content Include="N2\howto_develop.txt" />
@@ -282,8 +265,10 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\TextPart.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\SliderPart.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Columns.cshtml" />
-    <Content Include="Bootstrap\Themes\Metro\Content\custom.less" />
     <Content Include="Bootstrap\Themes\Metro\Content\less\variables.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\next.less" />
+    <Content Include="Bootstrap\Themes\Default\up.less" />
+    <Content Include="Bootstrap\Themes\Metro\up.less" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>

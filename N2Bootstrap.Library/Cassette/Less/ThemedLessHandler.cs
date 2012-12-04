@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using Cassette;
+using N2Bootstrap.Library.Less;
 using dotless.Core;
 using dotless.Core.Importers;
 using dotless.Core.Parser;
@@ -21,19 +22,7 @@ namespace N2Bootstrap.Library.Cassette.Less
 
         public void ProcessRequest(HttpContext context)
         {
-            //string localPath = "~" + context.Request.Url.LocalPath;
-
-            //string fileContents;
-            //using (var sr = new StreamReader(System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(localPath).Open()))
-            //{
-            //    fileContents = sr.ReadToEnd();
-            //}
-
-            //var importedFilePaths = new HashSet<string>();
-            //var engine = new LessEngine(new Parser(new ConsoleStylizer(), new Importer(new VirtualFileReader(localPath, importedFilePaths))));//context.SourceFilePath, importedFilePaths))));
-            //var result = engine.TransformToCss(fileContents, localPath);
-
-            context.Response.Write(ThemedLessEngine.CompileLess(context.Request.Url.LocalPath).Output);
+            context.Response.Write(ThemedLessEngine.CompileLess(context.Request.Url.LocalPath, null, context.Request.QueryString["theme"]).Output);
             context.Response.ContentType = "text/css";
         }
     }

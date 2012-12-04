@@ -5,6 +5,7 @@ using Cassette;
 using Cassette.Scripts;
 using Cassette.Stylesheets;
 using N2.Web;
+using N2Bootstrap.Library.Cassette;
 
 namespace N2Bootstrap.Library
 {
@@ -44,8 +45,8 @@ namespace N2Bootstrap.Library
 
         private string GetThemedItem(string content, string themePath, string defaultThemePath)
         {
-            var themed = Path.Combine(themePath, content);
-            themed = HostingEnvironment.VirtualPathProvider.FileExists(themed) ? themed : Path.Combine(defaultThemePath, content);
+            var themed = Path.Combine(themePath, content).Replace("\\\\", "\\").Replace("\\", "/");
+            themed = HostingEnvironment.VirtualPathProvider.FileExists(themed) ? themed : Path.Combine(defaultThemePath, content).Replace("\\\\", "\\").Replace("\\", "/");
             return themed.Substring(1);
         }
 

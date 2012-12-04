@@ -1,31 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Cassette;
 using N2.Web;
 using N2.Web.Mvc.Html;
+using N2Bootstrap.Library.Cassette.Less;
 using dotless.Core;
 using dotless.Core.Importers;
 using dotless.Core.Parser;
 using dotless.Core.Stylizers;
 
-namespace N2Bootstrap.Library.Cassette.Less
+namespace N2Bootstrap.Library.Less
 {
     public class ThemedLessEngine
     {
-        public static string InitTheme()
-        {
-            var theme = HttpContext.Current.Request.QueryString["theme"];
-            if (string.IsNullOrEmpty(theme))
-                theme = "Default";
-            HttpContext.Current.Items["theme"] = theme;
-            return theme;
-        }
-
         public static bool IsThemeable(string file)
         {
             var themeDirectory = Url.ResolveTokens("{ThemesUrl}").ToLower();
@@ -39,7 +29,7 @@ namespace N2Bootstrap.Library.Cassette.Less
             return isThemeable;
         }
 
-        public static string GetThemedFile(string file)
+        public static string GetThemedFile(string file, string theme)
         {
             file = file.Replace("\\\\", "\\").Replace("\\", "/");
             
@@ -49,6 +39,7 @@ namespace N2Bootstrap.Library.Cassette.Less
             if (!IsThemeable(file))
                 return file;
 
+            HttpContext.Current.Items["theme"] = theme;
             var themeDirectory = Url.ResolveTokens("{ThemesUrl}").ToLower();
             var themedLocation = file.Replace("~" + themeDirectory, "");
             themedLocation = themedLocation.Substring(themedLocation.IndexOf("/", StringComparison.Ordinal));
@@ -59,9 +50,8 @@ namespace N2Bootstrap.Library.Cassette.Less
 
         public static CompileResult CompileLess(string file, string contents = null, string theme = null)
         {
-            InitTheme();
             var importedFilePaths = new HashSet<string>();
-            var engine = new LessEngine(new Parser(new ConsoleStylizer(), new Importer(new VirtualFileReader(file, importedFilePaths))));
+            var engine = new LessEngine(new Parser(new ConsoleStylizer(), new Importer(new VirtualFileReader(file, importedFilePaths, theme))));
             if (string.IsNullOrEmpty(contents))
             {
                 using (var sr = new StreamReader(System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(file).Open()))

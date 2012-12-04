@@ -31,7 +31,6 @@ namespace N2Bootstrap.Library
         public static void RegisterRoutes(RouteCollection routes, IEngine engine)
         {
             routes.MapContentRoute("Content", engine);
-            routes.MapRoute("Css", "content/css", new { controller = "Common", action = "Styles" });
         }
 
         public static void RegisterViewEngines(ViewEngineCollection viewEngines)

@@ -1,4 +1,6 @@
-﻿using Cassette;
+﻿using System;
+using Cassette;
+using Cassette.BundleProcessing;
 using Cassette.Stylesheets;
 using Cassette.TinyIoC;
 using N2Bootstrap.Library.Cassette.Less;
@@ -9,7 +11,6 @@ namespace N2Bootstrap.Library.Cassette
     {
         public void Configure(TinyIoCContainer configurable)
         {
-            configurable.Register<ILessCompiler, CassetteLessCompiler>().AsMultiInstance();
             configurable.Register<IUrlGenerator>((c, n) => new UrlGenerator(c.Resolve<IUrlModifier>(), "cassette.axd/"));
         }
     }
