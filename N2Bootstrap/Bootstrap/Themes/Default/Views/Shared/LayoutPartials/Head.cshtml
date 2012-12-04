@@ -25,6 +25,7 @@
 @Bundles.RenderStylesheets()
 @Bundles.RenderScripts()
 
+<link href="@Url.RouteUrl("Css")" type="text/css" rel="stylesheet">
 <link rel="shortcut icon" href="@Url.ThemedContent("~/favicon.ico")" />
 <link rel="apple-touch-icon" href="@Url.ThemedContent("~/apple-touch-icon.png")" />
 <link rel="canonical" href="@(Content.Data.Url ?? Request.RawUrl)" />

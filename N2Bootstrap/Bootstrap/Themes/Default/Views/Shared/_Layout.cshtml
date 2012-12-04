@@ -20,7 +20,10 @@
     <div id="top">@{ Html.RenderPartial("LayoutPartials/Top"); }</div>
     <div id="header">@{ Html.RenderPartial("LayoutPartials/Header"); }</div>
     <div id="main-before">@{ Html.DroppableZone("BeforeMain").Title("Before Main").Render(); }</div>
-    <div id="main">
+    @{
+        var columns = ViewContext.TempData["layout.columns"].ToString().ToLower();
+    }
+    <div id="main" class="layout-@(columns)">
         <div class="container">
             <div class="row">
                 @RenderBody()

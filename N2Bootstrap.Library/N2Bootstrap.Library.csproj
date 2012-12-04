@@ -36,6 +36,13 @@
     <Reference Include="Cassette">
       <HintPath>..\packages\Cassette.2.0.0\lib\net40-client\Cassette.dll</HintPath>
     </Reference>
+    <Reference Include="Cassette.Less">
+      <HintPath>..\packages\Cassette.Less.2.0.0\lib\net40-client\Cassette.Less.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.ClientOnly, Version=1.3.1.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotlessClientOnly.1.3.1.0\lib\dotless.ClientOnly.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -67,6 +74,15 @@
     <Compile Include="Adapters\ModelAdapter.cs" />
     <Compile Include="Adapters\MvcAdapter.cs" />
     <Compile Include="CassetteConfiguration.cs" />
+    <Compile Include="Cassette\CassetteIoCConfiguation.cs" />
+    <Compile Include="Cassette\CassetteSettingsConfiguration.cs" />
+    <Compile Include="Cassette\CassetteVirtualDirectory.cs" />
+    <Compile Include="Cassette\CassetteVirtualFile.cs" />
+    <Compile Include="Cassette\Less\CassetteLessCompiler.cs" />
+    <Compile Include="Cassette\Less\ThemedLessEngine.cs" />
+    <Compile Include="Cassette\Less\ThemedLessHandler.cs" />
+    <Compile Include="Cassette\Less\VirtualFileReader.cs" />
+    <Compile Include="Cassette\UrlGenerator.cs" />
     <Compile Include="Controllers\LanguageIntersectionController.cs" />
     <Compile Include="Controllers\SharedPagesController.cs" />
     <Compile Include="Controllers\SharedPartsController.cs" />

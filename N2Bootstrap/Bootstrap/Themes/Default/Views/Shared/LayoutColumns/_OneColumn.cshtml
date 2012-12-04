@@ -1,7 +1,7 @@
 ﻿@{
     Layout = Url.ThemedContent("~/Views/Shared/_Layout.cshtml");
 }
-<div class="span12">
+<div id="main-content" class="span12">
     @{ Html.DroppableZone("BeforeContent").Title("Before Content").Render(); }
     @{ Html.RenderPartial("LayoutPartials/Breadcrumb"); }
     @RenderBody()

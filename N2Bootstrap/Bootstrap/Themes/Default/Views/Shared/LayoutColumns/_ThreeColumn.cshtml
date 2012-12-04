@@ -1,29 +1,23 @@
 ﻿@{
     Layout = Url.ThemedContent("~/Views/Shared/_Layout.cshtml");
 }
-<aside class="span3" role="complementary">
-    @if (IsSectionDefined("Left"))
-    {
-        <div>@RenderSection("Left")</div>
-    }
-    else
-    {
-        Html.DroppableZone("Left").Render();
-    }
-</aside>
-<div class="span6" role="main">
+<div id="main-content" class="span6" role="main">
     @{ Html.DroppableZone("PreContent").Render(); }
     @{ Html.RenderPartial("LayoutPartials/Breadcrumb"); }
     @RenderBody()
     @{ Html.DroppableZone("PostContent").Render(); }
 </div>
-<aside class="span3" role="complementary">
+<aside id="main-left" class="span3" role="complementary">
+    @if (IsSectionDefined("Left"))
+    {
+        <div>@RenderSection("Left")</div>
+    }
+    else { Html.DroppableZone("Left").Render(); }
+</aside>
+<aside id="main-right" class="span3" role="complementary">
     @if (IsSectionDefined("Right"))
     {
         <div>@RenderSection("Right")</div>
     }
-    else
-    {
-        Html.DroppableZone("Right").Render();
-    }
+    else { Html.DroppableZone("Right").Render(); }
 </aside>
