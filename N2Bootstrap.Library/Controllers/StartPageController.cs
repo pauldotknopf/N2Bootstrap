@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Security;
+using Cassette.Stylesheets;
+using Cassette.Views;
 using N2;
 using N2.Definitions;
 using N2.Engine.Globalization;
@@ -41,6 +45,21 @@ namespace N2Bootstrap.Library.Controllers
 				+ "<li>" + Link.To(start) + "</li>"
 				+ content + "</ul>");
 		}
+
+        public ActionResult DefaultCss()
+        {
+            var content = string.Empty;
+            Bundles.Reference("Default-css");
+            foreach (var url in Bundles.GetReferencedBundleUrls<StylesheetBundle>())
+            {
+                var response = WebRequest.Create(N2.Web.Url.ServerUrl +url).GetResponse();
+                using(var sr = new StreamReader(response.GetResponseStream()))
+                {
+                    content += sr.ReadToEnd();
+                }
+            }
+            return Content(content, "text/css");
+        }
 
 		public ActionResult Search(string q)
 		{

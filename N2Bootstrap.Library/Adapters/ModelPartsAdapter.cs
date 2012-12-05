@@ -18,7 +18,8 @@ namespace N2Bootstrap.Library.Adapters
         {
             var items = base.GetParts(belowParentItem, inZoneNamed, filteredForInterface, state);
             ContentItem grandParentItem = belowParentItem;
-            if (!state.IsFlagSet(ControlPanelState.DragDrop) && inZoneNamed.EndsWith("Recursive") && grandParentItem is ContentPage)
+            //if (!state.IsFlagSet(ControlPanelState.DragDrop) && inZoneNamed.EndsWith("Recursive") && grandParentItem is ContentPage)
+            if (inZoneNamed.EndsWith("Recursive") && grandParentItem is ContentPage)
             {
                 if (!belowParentItem.VersionOf.HasValue)
                     items = items.Union(GetParts(belowParentItem.Parent, inZoneNamed, filteredForInterface));

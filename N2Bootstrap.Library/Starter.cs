@@ -31,6 +31,13 @@ namespace N2Bootstrap.Library
         public static void RegisterRoutes(RouteCollection routes, IEngine engine)
         {
             routes.MapContentRoute("Content", engine);
+            routes.MapRoute("DefaultCss",
+                            "DefaultCss",
+                            new
+                            {
+                                controller = "StartPage",
+                                action = "DefaultCss"
+                            });
         }
 
         public static void RegisterViewEngines(ViewEngineCollection viewEngines)

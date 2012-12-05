@@ -1,10 +1,4 @@
 ﻿@{
     Html.DroppableZone("Right").Title("Right").Render();
     Html.DroppableZone("RightRecursive").Title("Right Recursive").Render();
-    var site = Html.DroppableZone(Content.Traverse.StartPage, "RightSite");
-    if (!Html.IsSiteZoneEditable())
-    {
-        site.SetState(ControlPanelState.Visible);
-    }
-    site.Title("Right Site").Render();
 }

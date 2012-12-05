@@ -36,6 +36,9 @@
     <Reference Include="Cassette">
       <HintPath>..\packages\Cassette.2.0.0\lib\net40-client\Cassette.dll</HintPath>
     </Reference>
+    <Reference Include="Cassette.Views">
+      <HintPath>..\packages\Cassette.Views.2.0.0\lib\net40\Cassette.Views.dll</HintPath>
+    </Reference>
     <Reference Include="dotless.ClientOnly, Version=1.3.1.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\DotlessClientOnly.1.3.1.0\lib\dotless.ClientOnly.dll</HintPath>
@@ -97,12 +100,14 @@
     <Compile Include="Models\Columns.cs" />
     <Compile Include="Models\ContentPage.cs" />
     <Compile Include="Models\FreeForm.cs" />
+    <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\LanguageIntersection.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\PageModelBase.cs" />
     <Compile Include="Models\PartModelBase.cs" />
     <Compile Include="Models\SliderPart.cs" />
     <Compile Include="Models\StartPage.cs" />
+    <Compile Include="Models\Tabs.cs" />
     <Compile Include="Models\TextPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ContainerWrappableDefinitionAppender.cs" />

@@ -275,6 +275,8 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\AfterMain.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\BeforeMain.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\AfterContent.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Tabs.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Hero.cshtml" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>

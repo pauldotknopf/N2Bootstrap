@@ -1,10 +1,4 @@
 ﻿@{
-    Html.DroppableZone("AfterContent").Render();
+    Html.DroppableZone("AfterContent").Title("After Content").Render();
     Html.DroppableZone("ContentRecursive").Title("Content Recursive").Render();
-    var site = Html.DroppableZone(Content.Traverse.StartPage, "ContentSite");
-    if (!Html.IsSiteZoneEditable())
-    {
-        site.SetState(ControlPanelState.Visible);
-    }
-    site.Title("Content Site").Render();
 }
