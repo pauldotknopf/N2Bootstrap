@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using N2;
 using N2.Collections;
+using N2.Persistence;
 using N2.Web.UI;
 
 namespace N2Bootstrap.Library.Models
 {
     [SidebarContainer(Defaults.Containers.Metadata, 100, HeadingText = "Metadatda")]
+    [NotVersionable]
     public class ModelBase : ContentItem
     {
         /// <summary>

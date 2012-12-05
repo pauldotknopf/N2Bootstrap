@@ -1,23 +1,15 @@
-﻿@{
+﻿@using N2Bootstrap.Library
+@{
     Layout = Url.ThemedContent("~/Views/Shared/_Layout.cshtml");
 }
 <div id="main-content" class="span6" role="main">
-    @{ Html.DroppableZone("PreContent").Render(); }
-    @{ Html.RenderPartial("LayoutPartials/Breadcrumb"); }
+    @Html.Partial("Zones/BeforeContent")
     @RenderBody()
-    @{ Html.DroppableZone("PostContent").Render(); }
+    @Html.Partial("Zones/AfterContent")
 </div>
 <aside id="main-left" class="span3" role="complementary">
-    @if (IsSectionDefined("Left"))
-    {
-        <div>@RenderSection("Left")</div>
-    }
-    else { Html.DroppableZone("Left").Render(); }
+    @Html.Partial("Zones/Left")
 </aside>
 <aside id="main-right" class="span3" role="complementary">
-    @if (IsSectionDefined("Right"))
-    {
-        <div>@RenderSection("Right")</div>
-    }
-    else { Html.DroppableZone("Right").Render(); }
+    @Html.Partial("Zones/Right")
 </aside>

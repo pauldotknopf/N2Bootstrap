@@ -1,0 +1,10 @@
+﻿@{
+    Html.DroppableZone("BeforeMain").Title("Before Main").Render();
+    Html.DroppableZone("BeforeMainRecursive").Title("Before Main Recursive").Render();
+    var site = Html.DroppableZone("BeforeMainSite");
+    if (!Html.IsSiteZoneEditable())
+    {
+        site.SetState(ControlPanelState.Visible);
+    }
+    site.Title("Before Main Site").Render();
+}

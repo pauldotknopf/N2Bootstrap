@@ -269,6 +269,12 @@
     <Content Include="Bootstrap\Themes\Default\Content\next.less" />
     <Content Include="Bootstrap\Themes\Default\up.less" />
     <Content Include="Bootstrap\Themes\Metro\up.less" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\Left.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\Right.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\BeforeContent.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\AfterMain.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\BeforeMain.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\AfterContent.cshtml" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>

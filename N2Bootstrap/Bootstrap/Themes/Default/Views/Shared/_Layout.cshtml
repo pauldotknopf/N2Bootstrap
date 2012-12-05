@@ -1,4 +1,6 @@
-﻿<!doctype html>
+﻿@using N2.Web
+@using N2Bootstrap.Library
+<!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
@@ -19,18 +21,15 @@
     @{ Html.ControlPanel().Configure(cp => { cp.IncludeJQuery = false; }).Render(); }
     <div id="top">@{ Html.RenderPartial("LayoutPartials/Top"); }</div>
     <div id="header">@{ Html.RenderPartial("LayoutPartials/Header"); }</div>
-    <div id="main-before">@{ Html.DroppableZone("BeforeMain").Title("Before Main").Render(); }</div>
-    @{
-        var columns = ViewContext.TempData["layout.columns"].ToString().ToLower();
-    }
-    <div id="main" class="layout-@(columns)">
+    <div id="main-before">@{ Html.RenderPartial("Zones/BeforeMain"); }</div>
+    <div id="main" class="layout-@(ViewContext.TempData["layout.columns"].ToString().ToLower())">
         <div class="container">
             <div class="row">
                 @RenderBody()
             </div>
         </div>
     </div>
-    <div id="main-after">@{ Html.DroppableZone("AfterMain").Title("After Main").Render(); }</div>
+    <div id="main-after">@{ Html.RenderPartial("Zones/AfterMain"); }</div>
     <div id="footer">@{ Html.RenderPartial("LayoutPartials/Footer"); }</div>
 </body>
 </html>

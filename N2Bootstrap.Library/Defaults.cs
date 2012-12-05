@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using N2;
 using N2.Definitions;
+using N2.Web.Mvc;
+using N2.Web.Mvc.Html;
+using N2.Web.UI.WebControls;
 using N2Bootstrap.Library.Models;
 
 namespace N2Bootstrap.Library
 {
 	public static class Defaults
-	{
-	    public static List<string> ContainerWrappableZones = new List<string> {"BeforeMain", "AfterMain"};
+    {
+        public static List<string> ContainerWrappableZones = new List<string> { "BeforeMain", "BeforeMainRecursive", "BeforeMainSite", "AfterMain", "AfterMainRecursive", "AfterMainSite" };
 
         public enum Columns
         {

@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Adapters\IItemAdapter.cs" />
     <Compile Include="Adapters\ModelAdapter.cs" />
+    <Compile Include="Adapters\ModelPartsAdapter.cs" />
     <Compile Include="Adapters\MvcAdapter.cs" />
     <Compile Include="CassetteConfiguration.cs" />
     <Compile Include="Cassette\CassetteIoCConfiguation.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Cassette\Less\LessBundlePipelineModifier.cs" />
     <Compile Include="Cassette\Less\LessBundleProcessor.cs" />
     <Compile Include="Cassette\Less\LessCompileAsset.cs" />
+    <Compile Include="DroppableZoneHelperExtensions.cs" />
     <Compile Include="Less\Importer.cs" />
     <Compile Include="Less\ThemedLessEngine.cs" />
     <Compile Include="Cassette\Less\ThemedLessHandler.cs" />
