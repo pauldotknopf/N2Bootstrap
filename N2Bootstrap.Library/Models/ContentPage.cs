@@ -64,7 +64,13 @@ namespace N2Bootstrap.Library.Models
         /// <summary>
         /// Show the breadcrumbs?
         /// </summary>
-        [EditableCheckBox(Title="Show breadcrumb", ContainerName=Defaults.Containers.Layout, DefaultValue=true)]
+        [EditableCheckBox(CheckBoxText="Show breadcrumb", Title="", ContainerName=Defaults.Containers.Layout, DefaultValue=true)]
         public virtual bool ShowBreadcrumb { get; set; }
+
+        /// <summary>
+        /// Show the page title?
+        /// </summary>
+        [EditableCheckBox(CheckBoxText = "Show page title", Title="", ContainerName = Defaults.Containers.Layout, DefaultValue = true)]
+        public virtual bool ShowPageTitle { get; set; }
 	}
 }

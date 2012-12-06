@@ -214,7 +214,6 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Footer.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Head.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Header.cshtml" />
-    <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Top.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Content\custom.less" />
     <Content Include="Bootstrap\Themes\Default\Content\less\accordion.less" />
     <Content Include="Bootstrap\Themes\Default\Content\less\alerts.less" />
