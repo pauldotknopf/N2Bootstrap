@@ -113,7 +113,11 @@
     <Compile Include="Services\ContainerWrappableDefinitionAppender.cs" />
     <Compile Include="Starter.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

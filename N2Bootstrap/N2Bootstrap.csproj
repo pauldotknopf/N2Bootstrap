@@ -20,6 +20,9 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <RootFolder>$(MSBuildProjectDirectory)\..</RootFolder>
+    <DestinationZip>$(MSBuildProjectDirectory)\Bootstrap\Bootstrap.zip</DestinationZip>
+    <ZipBootstrap>false</ZipBootstrap>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <Import Project="$(RootFolder)\build\lib\MSBuild.Community.Tasks.targets" />
   <ItemGroup>
     <Reference Include="AjaxMin">
       <HintPath>..\packages\AjaxMin.4.60.4609.17023\lib\net20\AjaxMin.dll</HintPath>
@@ -157,25 +161,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bootstrap\notes.txt" />
+    <Content Include="Bootstrap\Themes\notes.txt" />
     <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings-white.png" />
     <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\bootstrap.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.8.2.js" />
     <Content Include="Bootstrap\Themes\Metro\Content\Images\google.png" />
-    <Content Include="Global.asax" />
     <Content Include="N2\history.txt" />
     <Content Include="N2\howto_develop.txt" />
     <Content Include="N2\howto_install.txt" />
     <Content Include="N2\license.txt" />
     <Content Include="N2\n2_readme.txt" />
     <Content Include="N2\upgrade.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -206,7 +210,7 @@
     <Content Include="Bootstrap\Themes\Default\Views\Web.config" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\Error.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\_Layout.cshtml" />
-    <Content Include="Bootstrap\Themes\Web.config" />
+    <Content Include="Bootstrap\Web.config" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Footer.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Head.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Header.cshtml" />
@@ -277,9 +281,13 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\AfterContent.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Tabs.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Hero.cshtml" />
+    <Content Include="App_Data\n2_host.config.transform" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="web.config.transform">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\N2Bootstrap.Library\N2Bootstrap.Library.csproj">
@@ -315,6 +323,16 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="CustomPostBuild" AfterTargets="AfterBuild" Condition="'$(ZipBootstrap)'=='true'">
+    <Message Text="Creating Method.Zip" />
+    <ItemGroup>
+      <!-- All files from build -->
+      <ZipFiles Include="$(MSBuildProjectDirectory)\Bootstrap\**\*.*" Exclude="*.zip" />
+    </ItemGroup>
+    <Delete Files="$(DestinationZip)" Condition="Exists('$(DestinationZip)')" />
+    <Zip Files="@(ZipFiles)" WorkingDirectory="$(MSBuildProjectDirectory)\" ZipFileName="$(DestinationZip)" ZipLevel="9" />
+    <Copy SourceFiles="$(DestinationZip)" DestinationFiles="$(WebProjectOutputDir)\Bootstrap\Bootstrap.zip" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

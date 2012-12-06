@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Web.Hosting;
@@ -6,7 +7,7 @@ using Cassette.Scripts;
 using Cassette.Stylesheets;
 using N2.Web;
 using N2Bootstrap.Library.Cassette;
-
+using System.Linq;
 namespace N2Bootstrap.Library
 {
     /// <summary>
@@ -16,26 +17,41 @@ namespace N2Bootstrap.Library
     {
         public void Configure(BundleCollection bundles)
         {
+            N2.Context.Initialize(false);
             string path = Url.ResolveTokens(Url.ThemesUrlToken);
             if (HostingEnvironment.VirtualPathProvider.DirectoryExists(path))
             {
                 var defaultThemePath = Path.Combine(path, "Default");
-                foreach (VirtualDirectory directory in HostingEnvironment.VirtualPathProvider.GetDirectory(path).Directories)
+
+                var themeDirectories = new List<string>();
+                foreach (VirtualDirectory virtualDirectory in HostingEnvironment.VirtualPathProvider.GetDirectory(path).Directories)
                 {
-                    string directoryName = directory.Name;
+                    var directory = virtualDirectory.VirtualPath.Replace("\\\\", "\\").Replace("\\", "/");
+                    themeDirectories.Add(virtualDirectory.VirtualPath.EndsWith("/") ? directory.TrimEnd(Convert.ToChar("/")) : directory);
+                }
+
+                // if we are using vpp, the default directory doesn't return. It is a problem in N2.Packaging and this is the workaround.
+                if (!themeDirectories.Any(x => Path.GetFileName(x).ToLower() == "default"))
+                {
+                    themeDirectories.Add("/Bootstrap/Themes/Default");
+                }
+
+                foreach (var directory in themeDirectories)
+                {
+                    string directoryName = Path.GetFileName(directory).ToLower();
                     if (directoryName != null && !directoryName.StartsWith("."))
                     {
                         bundles.Add<StylesheetBundle>(directoryName + "-css", new List<string>
                         {
-                            GetThemedItem("content/less/bootstrap.less", directory.VirtualPath, defaultThemePath),
-                            GetThemedItem("content/less/responsive.less", directory.VirtualPath, defaultThemePath),
-                            GetThemedItem("content/custom.less", directory.VirtualPath, defaultThemePath)
+                            GetThemedItem("content/less/bootstrap.less", directory, defaultThemePath),
+                            GetThemedItem("content/less/responsive.less", directory, defaultThemePath),
+                            GetThemedItem("content/custom.less", directory, defaultThemePath)
                         },
                         (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
                         bundles.Add<ScriptBundle>(directoryName + "-js", new List<string>
                         {
-                            GetThemedItem("scripts/jquery-1.8.2.js", directory.VirtualPath, defaultThemePath),
-                            GetThemedItem("scripts/bootstrap.js", directory.VirtualPath, defaultThemePath)
+                            GetThemedItem("scripts/jquery-1.8.2.js", directory, defaultThemePath),
+                            GetThemedItem("scripts/bootstrap.js", directory, defaultThemePath)
                         },
                         (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
                     }

@@ -23,6 +23,11 @@ namespace N2Bootstrap.Library.Less
         public override ImportAction Import(dotless.Core.Parser.Tree.Import import)
         {
             import.Path = _fileReader.GetFilePath(import.Path);
+            //var regex = new Regex(@"([^/]*/\.\./)");
+            //while (regex.IsMatch(import.Path))
+            //{
+            //    import.Path = regex.Replace(import.Path, "");
+            //}
             return base.Import(import);
         }
 

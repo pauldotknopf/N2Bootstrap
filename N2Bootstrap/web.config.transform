@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <n2 xmlns="http://n2cms.com/schemas/configuration/v3">
+    <edit>
+      <tinyMCE cssUrl="/defaultcss" enabled="true" />
+    </edit>
+  </n2>
+</configuration>

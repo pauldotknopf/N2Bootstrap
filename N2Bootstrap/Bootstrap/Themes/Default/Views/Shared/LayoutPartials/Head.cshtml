@@ -16,8 +16,9 @@
         string theme = Content.Data.Theme;
         if (string.IsNullOrEmpty(theme))
         {
-            theme = "Default";
+            theme = "default";
         }
+        theme = theme.ToLower();
         Bundles.Reference(theme + "-css");
         Bundles.Reference(theme + "-js");
     }

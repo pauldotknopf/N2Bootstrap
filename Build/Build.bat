@@ -1,0 +1,1 @@
+%windir%\Microsoft.net\Framework\v4.0.30319\msbuild.exe "..\N2Bootstrap.sln" /p:OutDir="%CD%\Output" /p:Configuration="Release" /p:ZipBootstrap="true"

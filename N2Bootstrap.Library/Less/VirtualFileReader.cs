@@ -50,7 +50,7 @@ namespace N2Bootstrap.Library.Less
 
         public string GetFilePath(string fileName)
         {
-            string result = fileName.StartsWith("~") || fileName.StartsWith("/")
+            string result = fileName.StartsWith("~")
                 ? fileName.ToLower() 
                 : Path.Combine(_startingDirectory, fileName).ToLower();
 

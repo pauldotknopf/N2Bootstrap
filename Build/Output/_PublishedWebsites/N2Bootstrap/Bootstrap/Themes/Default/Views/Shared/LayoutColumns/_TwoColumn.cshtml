@@ -1,0 +1,11 @@
+﻿@{
+    Layout = Url.ThemedContent("~/Views/Shared/_Layout.cshtml");
+}
+<div id="main-content" class="span8" role="main">
+    @Html.Partial("Zones/BeforeContent")
+    @RenderBody()
+    @Html.Partial("Zones/AfterContent")
+</div>
+<aside id="main-right" class="span4" role="complementary">
+    @Html.Partial("Zones/Right")
+</aside>

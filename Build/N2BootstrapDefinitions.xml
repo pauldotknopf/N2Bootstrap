@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Packages>
+  <PreActions>
+    <Command>$(buildDirectory)/Build.bat</Command>
+  </PreActions>
+  <Package name="N2Bootstrap">
+    <NuSpecPath>$(buildDirectory)/N2Bootstrap.nuspec</NuSpecPath>
+    <OutputDirectory>$(buildDirectory)</OutputDirectory>
+    <BasePath>$(buildDirectory)/Output/</BasePath>
+    <Deployments>
+      <Deployment name="Internal Deployment" path="E:\NuGetPackages\" />
+    </Deployments>
+  </Package>
+  <Package name="N2Bootstrap.Library">
+    <NuSpecPath>$(buildDirectory)/N2Bootstrap.Library.nuspec</NuSpecPath>
+    <OutputDirectory>$(buildDirectory)</OutputDirectory>
+    <BasePath>$(buildDirectory)/Output/</BasePath>
+    <Deployments>
+      <Deployment name="Internal Deployment" path="E:\NuGetPackages\" />
+    </Deployments>
+  </Package>
+</Packages>
