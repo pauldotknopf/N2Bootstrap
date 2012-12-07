@@ -170,7 +170,6 @@
     <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\bootstrap.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.8.2.js" />
-    <Content Include="Bootstrap\Themes\Metro\Content\Images\google.png" />
     <Content Include="N2\history.txt" />
     <Content Include="N2\howto_develop.txt" />
     <Content Include="N2\howto_install.txt" />
@@ -214,7 +213,7 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Footer.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Head.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Header.cshtml" />
-    <Content Include="Bootstrap\Themes\Default\Content\custom.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\theme.less" />
     <Content Include="Bootstrap\Themes\Default\Content\less\accordion.less" />
     <Content Include="Bootstrap\Themes\Default\Content\less\alerts.less" />
     <Content Include="Bootstrap\Themes\Default\Content\less\bootstrap.less" />
@@ -268,10 +267,6 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\TextPart.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\SliderPart.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Columns.cshtml" />
-    <Content Include="Bootstrap\Themes\Metro\Content\less\variables.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\next.less" />
-    <Content Include="Bootstrap\Themes\Default\up.less" />
-    <Content Include="Bootstrap\Themes\Metro\up.less" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\Left.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\Right.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\Zones\BeforeContent.cshtml" />
@@ -281,6 +276,10 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Tabs.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Hero.cshtml" />
     <Content Include="App_Data\n2_host.config.transform" />
+    <Content Include="Bootstrap\Themes\Default\Content\site.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\site-responsive.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\theme-variables.less" />
+    <Content Include="Bootstrap\Themes\Metro\Content\less\bootstrap.less" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>

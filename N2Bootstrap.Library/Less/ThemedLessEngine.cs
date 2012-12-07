@@ -45,13 +45,17 @@ namespace N2Bootstrap.Library.Less
             themedLocation = themedLocation.Substring(themedLocation.IndexOf("/", StringComparison.Ordinal));
             var helper = new UrlHelper(HttpContext.Current.Request.RequestContext);
             var result = helper.ThemedContent(themedLocation);
+            if (System.Web.Hosting.HostingEnvironment.VirtualPathProvider.FileExists(result))
+            {
+                return System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(result).VirtualPath;
+            }
             return result;
         }
 
         public static CompileResult CompileLess(string file, string contents = null, string theme = null)
         {
             var importedFilePaths = new HashSet<string>();
-            var engine = new LessEngine(new Parser(new ConsoleStylizer(), new Importer(new VirtualFileReader(file, importedFilePaths, theme))));
+            var engine = new LessEngine(new Parser(new ConsoleStylizer(), new Importer(importedFilePaths, file, theme)));
             if (string.IsNullOrEmpty(contents))
             {
                 using (var sr = new StreamReader(System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(file).Open()))

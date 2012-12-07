@@ -8,27 +8,22 @@ namespace N2Bootstrap.Library.Less
     {
         private readonly IPathResolver _pathResolver;
         private readonly HashSet<string> _importFilePaths;
-        private readonly string _theme;
 
-        private readonly string _startingDirectory;
-
-        public VirtualFileReader(string original, HashSet<string> importFilePaths, string theme)
+        public VirtualFileReader(HashSet<string> importFilePaths)
         {
             _importFilePaths = importFilePaths;
-            _theme = theme;
-            _startingDirectory = original.Substring(0, original.LastIndexOf('/') + 1);
         }
 
         public bool DoesFileExist(string fileName)
         {
-            return System.Web.Hosting.HostingEnvironment.VirtualPathProvider.FileExists(GetFilePath(fileName));
+            return System.Web.Hosting.HostingEnvironment.VirtualPathProvider.FileExists(fileName);
         }
 
         public string GetFileContents(string fileName)
         {
             _importFilePaths.Add(fileName);
 
-            using (var stream = System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(GetFilePath(fileName)).Open())
+            using (var stream = System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(fileName).Open())
             {
                 return new StreamReader(stream).ReadToEnd();
             }
@@ -38,7 +33,7 @@ namespace N2Bootstrap.Library.Less
         {
             _importFilePaths.Add(fileName);
 
-            using (var stream = System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(GetFilePath(fileName)).Open())
+            using (var stream = System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(fileName).Open())
             {
                 using (var memoryStream = new MemoryStream())
                 {
@@ -46,15 +41,6 @@ namespace N2Bootstrap.Library.Less
                     return memoryStream.ToArray();
                 }
             }
-        }
-
-        public string GetFilePath(string fileName)
-        {
-            string result = fileName.StartsWith("~")
-                ? fileName.ToLower() 
-                : Path.Combine(_startingDirectory, fileName).ToLower();
-
-            return ThemedLessEngine.GetThemedFile(result, _theme);
         }
     }
 }

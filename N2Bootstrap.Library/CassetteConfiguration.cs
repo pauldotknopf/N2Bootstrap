@@ -41,13 +41,21 @@ namespace N2Bootstrap.Library
                     string directoryName = Path.GetFileName(directory).ToLower();
                     if (directoryName != null && !directoryName.StartsWith("."))
                     {
+                        // regular css
                         bundles.Add<StylesheetBundle>(directoryName + "-css", new List<string>
                         {
-                            GetThemedItem("content/less/bootstrap.less", directory, defaultThemePath),
-                            GetThemedItem("content/less/responsive.less", directory, defaultThemePath),
-                            GetThemedItem("content/custom.less", directory, defaultThemePath)
+                            GetThemedItem("content/site.less", directory, defaultThemePath)
                         },
                         (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
+
+                        // responsive css
+                        bundles.Add<StylesheetBundle>(directoryName + "-responsive-css", new List<string>
+                        {
+                            GetThemedItem("content/site-responsive.less", directory, defaultThemePath)
+                        },
+                        (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
+
+                        // scripts
                         bundles.Add<ScriptBundle>(directoryName + "-js", new List<string>
                         {
                             GetThemedItem("scripts/jquery-1.8.2.js", directory, defaultThemePath),

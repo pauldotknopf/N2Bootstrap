@@ -70,6 +70,9 @@ namespace N2Bootstrap.Library.Models
         [EditableImage(Title="Logo", ContainerName = Defaults.Containers.Site)]
 		public virtual string Logotype { get; set; }
 
+        [EditableCheckBox(Title="", CheckBoxText="Is responsive", DefaultValue=true, ContainerName=Defaults.Containers.Site)]
+        public virtual bool IsResponsive { get; set; }
+
 		#region ISitesSource Members
 
         [EditableText(Title = "Site collection host name (DNS)",
