@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Packages>
   <PreActions>
-    <Command>$(buildDirectory)/Build.bat</Command>
+    <Command>$(buildDirectory)/Build.bat $(version)</Command>
   </PreActions>
   <Package name="N2Bootstrap">
     <NuSpecPath>$(buildDirectory)/N2Bootstrap.nuspec</NuSpecPath>

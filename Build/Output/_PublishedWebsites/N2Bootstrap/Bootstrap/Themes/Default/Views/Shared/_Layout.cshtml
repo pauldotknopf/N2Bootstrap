@@ -6,7 +6,7 @@
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en" class="no-js">
+<html lang="en" class="no-js">  
 <!--<![endif]-->
 <head>
     @{
@@ -19,7 +19,6 @@
 </head>
 <body>
     @{ Html.ControlPanel().Configure(cp => { cp.IncludeJQuery = false; }).Render(); }
-    <div id="top">@{ Html.RenderPartial("LayoutPartials/Top"); }</div>
     <div id="header">@{ Html.RenderPartial("LayoutPartials/Header"); }</div>
     <div id="main-before">@{ Html.RenderPartial("Zones/BeforeMain"); }</div>
     <div id="main" class="layout-@(ViewContext.TempData["layout.columns"].ToString().ToLower())">

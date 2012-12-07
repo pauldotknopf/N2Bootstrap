@@ -1,0 +1,30 @@
+﻿@import "less/bootstrap.less";
+
+/*TBS has a bug with responsive navs. This fixes it.*/
+#nav {
+    position: inherit;
+    margin-bottom: 20px;
+}
+    /*the brand has a lot of padding for text. we use images, so give it room to breath*/
+    #nav .brand {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+        #nav .brand img {
+            max-height: 30px;
+        }
+
+#footer {
+    background-color: @wellBackground;
+    border: 1px solid darken(@wellBackground, 7%);
+    margin-top: 50px;
+    padding: 19px 0px 10px;
+
+    blockquote {
+        border-color: #ddd;
+        border-color: rgba(0,0,0,.15);
+    }
+}
+
+@import "theme.less";

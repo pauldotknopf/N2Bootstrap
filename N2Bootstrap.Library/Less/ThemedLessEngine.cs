@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using Cassette;
@@ -31,6 +32,14 @@ namespace N2Bootstrap.Library.Less
 
         public static string GetThemedFile(string file, string theme)
         {
+            // n2's zip provider doesn't support ../../, so lets try to fix it manually
+            var regex = new Regex(@"([^/]*/\.\./)");
+            while (regex.IsMatch(file))
+            {
+                file = regex.Replace(file, "");
+            }
+
+
             file = file.Replace("\\\\", "\\").Replace("\\", "/");
             
             if (file.StartsWith("/"))

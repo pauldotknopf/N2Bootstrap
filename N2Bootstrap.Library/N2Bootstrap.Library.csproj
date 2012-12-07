@@ -11,6 +11,8 @@
     <AssemblyName>N2Bootstrap.Library</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <MSBuildCommunityTasksPath>$(SolutionDir)\Build</MSBuildCommunityTasksPath>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -110,6 +112,7 @@
     <Compile Include="Models\Tabs.cs" />
     <Compile Include="Models\TextPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\VersionInfo.cs" />
     <Compile Include="Services\ContainerWrappableDefinitionAppender.cs" />
     <Compile Include="Starter.cs" />
   </ItemGroup>
@@ -122,11 +125,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
+  <Import Project="$(SolutionDir)\Build\MSBuild.Community.Tasks.targets" />
   <Target Name="BeforeBuild">
+    <AssemblyInfo CodeLanguage="CS" OutputFile="Properties\VersionInfo.cs" AssemblyVersion="$(AssemblyVersion)" AssemblyFileVersion="$(AssemblyVersion)" AssemblyInformationalVersion="$(AssemblyVersion)" />
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

@@ -13,6 +13,11 @@
 @{
     using (Content.BeginScope(Content.Traverse.StartPage))
     {
+        var isResponsive = true;
+        if (Content.Has.IsResponsive)
+        {
+            isResponsive = Content.Data.IsResponsive;
+        }
         string theme = Content.Data.Theme;
         if (string.IsNullOrEmpty(theme))
         {
@@ -20,6 +25,10 @@
         }
         theme = theme.ToLower();
         Bundles.Reference(theme + "-css");
+        if (isResponsive)
+        {
+            Bundles.Reference(theme + "-responsive-css");
+        }
         Bundles.Reference(theme + "-js");
     }
 }
