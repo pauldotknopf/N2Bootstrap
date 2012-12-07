@@ -2,7 +2,7 @@
 <configuration>
   <system.webServer>
     <handlers>
-      <add name="dotless" path="*.less" verb="GET" type="N2Bootstrap.Library.Cassette.Less.ThemedLessHandler, N2Bootstrap.Library" resourceType="File" preCondition="" />
+      <add name="dotless" path="*.less" verb="GET" type="N2Bootstrap.Library.Cassette.Less.ThemedLessHandler, N2Bootstrap.Library" preCondition="" />
     </handlers>
   </system.webServer>
   <system.web>

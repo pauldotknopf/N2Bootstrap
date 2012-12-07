@@ -29,5 +29,8 @@
     <file src="_PublishedWebsites\N2Bootstrap\Bootstrap\Themes\notes.txt" target="content\Bootstrap\Themes\notes.txt" />
     <file src="_PublishedWebsites\N2Bootstrap\Bootstrap\web.config" target="content\Bootstrap\web.config" />
     <file src="_PublishedWebsites\N2Bootstrap\App_Data\n2_host.config.transform" target="content\App_Data\n2_host.config.transform" />
+    <file src="_PublishedWebsites\N2Bootstrap\App_Data\SampleBootstrap.n2.xml.gz" target="content\App_Data\SampleBootstrap.n2.xml.gz" />
+    <file src="_PublishedWebsites\N2Bootstrap\App_Data\SampleBootstrap.n2.xml.gz.txt" target="content\App_Data\SampleBootstrap.n2.xml.gz.txt" />
+    <file src="_PublishedWebsites\N2Bootstrap\Upload\**\*.*" target="content\Upload\" />
   </files>
 </package>

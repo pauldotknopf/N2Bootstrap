@@ -166,7 +166,9 @@
     <Compile Include="Properties\VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SampleBootstrap.n2.xml.gz.txt" />
     <Content Include="Bootstrap\notes.txt" />
+    <Content Include="Bootstrap\Themes\Default\preview.png" />
     <Content Include="Bootstrap\Themes\notes.txt" />
     <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings-white.png" />
     <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings.png" />
@@ -178,6 +180,12 @@
     <Content Include="N2\license.txt" />
     <Content Include="N2\n2_readme.txt" />
     <Content Include="N2\upgrade.txt" />
+    <Content Include="Upload\layout-one-column.png" />
+    <Content Include="Upload\layout-three-columns.png" />
+    <Content Include="Upload\layout-two-columns.png" />
+    <Content Include="Upload\n2logo.png" />
+    <Content Include="Upload\slide-01.jpg" />
+    <Content Include="Upload\slide-02.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -194,9 +202,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Upload\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -282,6 +288,7 @@
     <Content Include="Bootstrap\Themes\Default\Content\site-responsive.less" />
     <Content Include="Bootstrap\Themes\Default\Content\theme-variables.less" />
     <Content Include="Bootstrap\Themes\Metro\Content\less\bootstrap.less" />
+    <Content Include="App_Data\SampleBootstrap.n2.xml.gz" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>
