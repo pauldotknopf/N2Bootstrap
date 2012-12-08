@@ -41,3 +41,5 @@ N2Bootstrap/App_Data/Temp/
 Build/Output
 Build/*.nupkg
 N2Bootstrap/App_Data/n2.sqlite.db
+N2Bootstrap.Library/Properties/VersionInfo.cs
+N2Bootstrap/Properties/VersionInfo.cs
