@@ -19,16 +19,16 @@
 </head>
 <body>
     @{ Html.ControlPanel().Configure(cp => { cp.IncludeJQuery = false; }).Render(); }
-    <div id="header">@{ Html.RenderPartial("LayoutPartials/Header"); }</div>
-    <div id="main-before">@{ Html.RenderPartial("Zones/BeforeMain"); }</div>
-    <div id="main" class="layout-@(ViewContext.TempData["layout.columns"].ToString().ToLower())">
+    <header id="header">@{ Html.RenderPartial("LayoutPartials/Header"); }</header>
+    <section id="main-before">@{ Html.RenderPartial("Zones/BeforeMain"); }</section>
+    <section id="main" class="layout-@(ViewContext.TempData["layout.columns"].ToString().ToLower())">
         <div class="container">
             <div class="row">
                 @RenderBody()
             </div>
         </div>
-    </div>
-    <div id="main-after">@{ Html.RenderPartial("Zones/AfterMain"); }</div>
-    <div id="footer">@{ Html.RenderPartial("LayoutPartials/Footer"); }</div>
+    </section>
+    <section id="main-after">@{ Html.RenderPartial("Zones/AfterMain"); }</section>
+    <footer id="footer">@{ Html.RenderPartial("LayoutPartials/Footer"); }</footer>
 </body>
 </html>
