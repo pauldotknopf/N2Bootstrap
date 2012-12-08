@@ -6,7 +6,7 @@ using N2.Details;
 using System.Linq;
 using N2.Web.UI.WebControls;
 
-namespace BootstrapBlog.Blog.Details
+namespace N2Bootstrap.Library.Details
 {
     public class EditableMultipleItemProviderSelectionAttribute : N2.Details.EditableMultipleItemSelectionAttribute
     {
