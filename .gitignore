@@ -37,5 +37,7 @@ _ReSharper.*
 *.resharper
 Ankh.NoLoad
 N2Bootstrap/App_Data/SearchIndex/
+N2Bootstrap/App_Data/Temp/
 Build/Output
 Build/*.nupkg
+N2Bootstrap/App_Data/n2.sqlite.db
