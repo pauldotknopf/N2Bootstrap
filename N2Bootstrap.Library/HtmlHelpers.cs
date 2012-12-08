@@ -1,4 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using N2;
 using N2.Web.Mvc;
 using N2.Web.Mvc.Html;
 using N2.Web;
@@ -8,25 +13,31 @@ namespace N2Bootstrap.Library
 {
     public static class HtmlHelpers
     {
-        public static void BootstrapTree<TModel>(this HtmlHelper<TModel> helper)
+        /// <summary>
+        /// Render a list of links of content items with a separator
+        /// </summary>
+        /// <typeparam name="TModel"></typeparam>
+        /// <typeparam name="TContentItem"></typeparam>
+        /// <param name="helper"></param>
+        /// <param name="items"></param>
+        /// <param name="separator"></param>
+        /// <param name="linkModifier"></param>
+        /// <returns></returns>
+        public static IHtmlString ContentItemLinkList<TModel, TContentItem>
+            (this HtmlHelper<TModel> helper,
+            IEnumerable<TContentItem> items,
+            string separator = ", ",
+            Action<ILinkBuilder> linkModifier = null)
+            where TContentItem : ContentItem
         {
-            //helper.Tree()
-        }
-
-        public static bool IsSiteZoneEditable<TModel>(this HtmlHelper<TModel> helper)
-        {
-            var state = helper.GetControlPanelState();
-            var content = new DynamicContentHelper(helper);
-
-            if (state.IsFlagSet(ControlPanelState.DragDrop))
+            var html = string.Join(separator, items.Select(x =>
             {
-                if (content.Current.Item == content.Traverse.StartPage)
-                {
-                    return true;
-                }
-                return false;
-            }
-            return true;
+                var link = Link.To(x);
+                if (linkModifier != null)
+                    linkModifier(link);
+                return link.ToString();
+            }));
+            return MvcHtmlString.Create(html);
         }
     }
 }

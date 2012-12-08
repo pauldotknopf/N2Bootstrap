@@ -5,9 +5,18 @@ using System.Web.Hosting;
 using Cassette;
 using Cassette.Scripts;
 using Cassette.Stylesheets;
+using N2.Plugin;
 using N2.Web;
 using N2Bootstrap.Library.Cassette;
 using System.Linq;
+using N2Bootstrap.Library.Resources;
+
+// default resources
+[assembly: BootstrapResource("content/site.less", ResponsiveMode = BootstrapResourceAttribute.ResponsiveModeEnum.NotResponsive)]
+[assembly: BootstrapResource("content/site-responsive.less", ResponsiveMode = BootstrapResourceAttribute.ResponsiveModeEnum.Responsive)]
+[assembly: BootstrapResource("scripts/jquery-1.8.2.js", SortOrder = 0)]
+[assembly: BootstrapResource("scripts/bootstrap.js", SortOrder = 1)]
+
 namespace N2Bootstrap.Library
 {
     /// <summary>
@@ -36,32 +45,52 @@ namespace N2Bootstrap.Library
                     themeDirectories.Add("/Bootstrap/Themes/Default");
                 }
 
+                var regularCss = new List<string>();
+                var responsiveCss = new List<string>();
+                var javascript = new List<string>();
+
+                var resourcesPlugins = N2.Context.Current.Resolve<IPluginFinder>().GetPlugins<BootstrapResourceAttribute>();
+
+                foreach (var resourcesPlugin in resourcesPlugins)
+                {
+                    if (resourcesPlugin.ResourceType == BootstrapResourceAttribute.ResourceTypeEnum.CssOrLess)
+                    {
+                        switch (resourcesPlugin.ResponsiveMode)
+                        {
+                            case BootstrapResourceAttribute.ResponsiveModeEnum.Responsive:
+                                responsiveCss.Add(resourcesPlugin.ThemedResourceLocation);
+                                break;
+                            case BootstrapResourceAttribute.ResponsiveModeEnum.NotResponsive:
+                                regularCss.Add(resourcesPlugin.ThemedResourceLocation);
+                                break;
+                            case BootstrapResourceAttribute.ResponsiveModeEnum.Both:
+                                responsiveCss.Add(resourcesPlugin.ThemedResourceLocation);
+                                regularCss.Add(resourcesPlugin.ThemedResourceLocation);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        javascript.Add(resourcesPlugin.ThemedResourceLocation);
+                    }
+                }
+
                 foreach (var directory in themeDirectories)
                 {
                     string directoryName = Path.GetFileName(directory).ToLower();
                     if (directoryName != null && !directoryName.StartsWith("."))
                     {
-                        // regular css
-                        bundles.Add<StylesheetBundle>(directoryName + "-css", new List<string>
-                        {
-                            GetThemedItem("content/site.less", directory, defaultThemePath)
-                        },
-                        (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
+                        bundles.Add<StylesheetBundle>(directoryName + "-css",
+                            regularCss.Select(x => GetThemedItem(x, directory, defaultThemePath)),
+                            (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
 
-                        // responsive css
-                        bundles.Add<StylesheetBundle>(directoryName + "-responsive-css", new List<string>
-                        {
-                            GetThemedItem("content/site-responsive.less", directory, defaultThemePath)
-                        },
-                        (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
+                        bundles.Add<StylesheetBundle>(directoryName + "-responsive-css",
+                            responsiveCss.Select(x => GetThemedItem(x, directory, defaultThemePath)),
+                            (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
 
-                        // scripts
-                        bundles.Add<ScriptBundle>(directoryName + "-js", new List<string>
-                        {
-                            GetThemedItem("scripts/jquery-1.8.2.js", directory, defaultThemePath),
-                            GetThemedItem("scripts/bootstrap.js", directory, defaultThemePath)
-                        },
-                        (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
+                        bundles.Add<ScriptBundle>(directoryName + "-js",
+                            javascript.Select(x => GetThemedItem(x, directory, defaultThemePath)),
+                            (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
                     }
                 }
             }
