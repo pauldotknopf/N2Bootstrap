@@ -6,10 +6,15 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+@{
+    N2.Web.Mvc.RenderHelper.DefaultEditable = false;
+}
 @Content.Display.MetaAuthor
 @Content.Display.MetaKeywords
 @Content.Display.MetaDescription
-
+@{
+    N2.Web.Mvc.RenderHelper.DefaultEditable = true;
+}
 @{
     using (Content.BeginScope(Content.Traverse.StartPage))
     {
