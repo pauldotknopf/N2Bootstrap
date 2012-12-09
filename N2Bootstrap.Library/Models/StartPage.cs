@@ -8,6 +8,7 @@ using N2.Edit;
 using N2.Engine.Globalization;
 using N2.Installation;
 using N2.Integrity;
+using N2.Persistence;
 using N2.Security;
 using N2.Web;
 using N2.Web.UI;
@@ -26,6 +27,7 @@ namespace N2Bootstrap.Library.Models
     [RestrictParents(typeof(IRootPage), typeof(LanguageIntersection))]
     [RecursiveContainer("SiteContainer", 1000, RequiredPermission = Permission.Administer)]
     [FieldSetContainer(Defaults.Containers.Site, "Site", 1000, ContainerName = "SiteContainer")]
+    [NotVersionable]
 	public class StartPage : ContentPage, IStartPage, IStructuralPage, IThemeable, ILanguage, ISitesSource, IItemAdapter
 	{
 		#region IThemeable Members

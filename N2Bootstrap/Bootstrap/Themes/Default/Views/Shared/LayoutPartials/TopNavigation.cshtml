@@ -1,47 +1,6 @@
-﻿@using N2
-@using N2.Definitions
-@using N2.Web
-@using System.Linq;
-@{
-    var start = Content.Parse(Request["returnUrl"]) ?? Content.Traverse.StartPage;
-    var currentItem = Content.Current.Item;
-    var currentItemparents = new List<ContentItem>();
-    if (currentItem != start)
-    {
-        currentItemparents = N2.Find.EnumerateParents(currentItem).Where(x => !(x is IRootPage) && x != start).ToList();
-    }
-    var tree = Html.Tree(start, htmlAttributes: new { id = "menu", @class = "nav" }, appendCreatorNode: true, takeLevels: 3)
-        .ClassProvider((node) => node.Parent != null && node.Parent.Current != null ? "dropdown-menu hidden-tablet hidden-phone" : string.Empty,
-                                (node) =>
-                                    {
-                                        var @class = node.Children.Count > 0 ? "dropdown" : string.Empty;
-                                        
-                                        // we only show active on first level
-                                        if (node.Parent == null || node.Parent.Current == null)
-                                        {
-                                            if (currentItemparents.Contains(node.Current) || node.Current == currentItem)
-                                            {
-                                                return (@class + " active").Trim();
-                                            }
-                                        }
-                                        
-                                        return @class;
-                                    })
-        .LinkWriter((node, writer) =>
-        {
-            var link = Link.To(node.Current);
-            if (node.Children.Count > 0)
-            {
-                link.Class("dropdown-toggle disabled");
-                link.Attribute("data-toggle", "dropdown");
-            }
-            link.WriteTo(writer);
-        });
-}
-@tree
+﻿@Html.BootstrapTree(takeLevel: 3, appendCreatorNode:true, onHoverDropdowns:true).HtmlAttibutes(new { id="menu"})
 <script type="text/javascript">
     $(function () {
-
         $("#menu li.dropdown").hover(function () {
             $(this).addClass("open");
         }, function () {

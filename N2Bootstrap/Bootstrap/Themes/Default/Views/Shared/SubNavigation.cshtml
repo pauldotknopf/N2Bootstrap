@@ -1,0 +1,28 @@
+﻿@using N2;
+@using N2.Collections
+@using N2.Edit
+@model N2Bootstrap.Library.ViewModels.INavigationModel
+@(Html.Raw(Model.WrapInWell ? "<div class=\"well\">" : ""))
+@{
+    var currentPage = Content.Current.Page;
+    var startFrom = Model.StartFrom ?? (currentPage is N2.Definitions.IStartPage ? currentPage : currentPage.Parent);
+
+    var navClass = "nav";
+    
+    if (Model.Stacked)
+    {
+        navClass += " nav-stacked";
+    }
+    switch (Model.NavigationType)
+    {
+        case NavigationTypeEnum.Tabs:
+            navClass += " nav-tabs";
+            break;
+        case NavigationTypeEnum.Pills:
+            navClass += " nav-pills";
+            break;
+    }
+    
+    @Html.BootstrapTree(startFrom, takeLevel: Model.AllowDropDown ? 3 : 2, filter:Model.Filtler).HtmlAttibutes(new { @class = navClass.Trim() });
+}
+@(Html.Raw(Model.WrapInWell ? "</div>" : ""))

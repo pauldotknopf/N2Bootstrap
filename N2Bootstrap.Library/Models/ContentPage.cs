@@ -14,6 +14,7 @@ namespace N2Bootstrap.Library.Models
 	/// </summary>
 	[PageDefinition("Content Page")]
     [RestrictParents(typeof(IStructuralPage))]
+    [NotVersionable]
 	public class ContentPage : PageModelBase, IContentPage, IStructuralPage
 	{
 		/// <summary>

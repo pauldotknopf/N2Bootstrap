@@ -289,6 +289,8 @@
     <Content Include="Bootstrap\Themes\Default\Content\theme-variables.less" />
     <Content Include="Bootstrap\Themes\Metro\Content\less\bootstrap.less" />
     <Content Include="App_Data\SampleBootstrap.n2.xml.gz" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\SubNavigation.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\SubNavigation.cshtml" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>

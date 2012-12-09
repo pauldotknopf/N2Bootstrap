@@ -1,5 +1,6 @@
 ﻿using N2;
 using N2.Details;
+using N2.Persistence;
 using N2.Web.UI;
 using N2.Integrity;
 using N2.Definitions;
@@ -15,6 +16,7 @@ namespace N2Bootstrap.Library.Models
     [SidebarContainer(Defaults.Containers.Layout, 200, HeadingText="Layout")]
 	[TabContainer(Defaults.Containers.Content, "Content", 1000)]
 	[RestrictParents(typeof(IPage))]
+    [NotVersionable]
 	public abstract class PageModelBase : ModelBase, IPage
 	{
         
