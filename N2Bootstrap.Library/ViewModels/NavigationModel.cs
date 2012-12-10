@@ -15,5 +15,6 @@ namespace N2Bootstrap.Library.ViewModels
         public N2.Collections.ItemFilter Filtler { get; set; }
         public NavigationTypeEnum NavigationType { get; set; }
         public ContentItem StartFrom { get; set; }
+        public ContentItem CurrentItem { get; set; }
     }
 }

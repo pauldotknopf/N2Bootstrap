@@ -32,5 +32,10 @@ namespace N2Bootstrap.Library.Models
         /// Not used, default navigation filter will be used
         /// </summary>
         public N2.Collections.ItemFilter Filtler { get; set; }
+
+        /// <summary>
+        /// Not used, current page will be used
+        /// </summary>
+        public ContentItem CurrentItem { get; set; }
     }
 }

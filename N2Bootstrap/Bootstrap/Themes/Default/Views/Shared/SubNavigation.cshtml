@@ -4,8 +4,8 @@
 @model N2Bootstrap.Library.ViewModels.INavigationModel
 @(Html.Raw(Model.WrapInWell ? "<div class=\"well\">" : ""))
 @{
-    var currentPage = Content.Current.Page;
-    var startFrom = Model.StartFrom ?? (currentPage is N2.Definitions.IStartPage ? currentPage : currentPage.Parent);
+    var currentItem = Model.CurrentItem ?? Content.Current.Page;
+    var startFrom = Model.StartFrom ?? (currentItem is N2.Definitions.IStartPage ? currentItem : currentItem.Parent);
 
     var navClass = "nav";
     
@@ -22,6 +22,10 @@
             navClass += " nav-pills";
             break;
     }
-    @Html.BootstrapTree(startFrom, takeLevel: Model.AllowDropDown ? 3 : 2, filter:Model.Filtler, includeRoot:Model.IncludeRoot).HtmlAttibutes(new { @class = navClass.Trim() })
+    @Html.BootstrapTree(startFrom, 
+        currentItem, 
+        Model.AllowDropDown ? 3 : 2, 
+        Model.Filtler, 
+        includeRoot:Model.IncludeRoot).HtmlAttibutes(new { @class = navClass.Trim() })
 }
 @(Html.Raw(Model.WrapInWell ? "</div>" : ""))
