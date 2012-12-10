@@ -7,6 +7,8 @@ using System.Web.Routing;
 using N2;
 using N2.Collections;
 using N2.Definitions;
+using N2.Edit;
+using N2.Persistence;
 using N2.Web.Mvc;
 using N2.Web.Mvc.Html;
 using N2.Web;
@@ -53,65 +55,78 @@ namespace N2Bootstrap.Library
         /// <param name="takeLevel"></param>
         /// <param name="filter"></param>
         /// <param name="appendCreatorNode"></param>
-        /// <param name="disabledDropdowns"></param>
+        /// <param name="includeRoot"></param>
+        /// <param name="onHoverDropdowns"></param>
         /// <returns></returns>
-        public static N2.Web.Tree BootstrapTree<TModel>(this HtmlHelper<TModel> helper, 
-            N2.ContentItem startFrom = null,
-            N2.ContentItem currentItem = null,
+        public static N2.Web.Tree BootstrapTree<TModel>(this HtmlHelper<TModel> helper,
+            ContentItem startFrom = null,
+            ContentItem currentItem = null,
             int takeLevel = 2,
             ItemFilter filter = null,
             bool appendCreatorNode = false,
+            bool includeRoot = true,
             bool onHoverDropdowns = false)
         {
             // prep
-            if (startFrom == null)
+            if (startFrom == null) startFrom = helper.StartPage();
+            if (currentItem == null) currentItem = helper.CurrentPage();
+            if (filter == null)
+                filter = new NavigationFilter(helper.ViewContext.RequestContext.HttpContext.User, helper.ContentEngine().SecurityManager);
+
+            HierarchyBuilder builder = new ParallelRootHierarchyBuilder(startFrom, takeLevel);
+            builder.GetChildren = (builder.GetChildren = (item) =>
             {
-                startFrom = helper.StartPage();
-            }
-            if (currentItem == null)
-            {
-                currentItem = helper.CurrentPage();
-            }
+                var items = item.Children.Where(filter);
+                if (appendCreatorNode && item.IsPage && helper.GetControlPanelState().IsFlagSet(ControlPanelState.DragDrop))
+                    items = items.AppendCreatorNode(helper.ContentEngine(), item);
+                return items.ToList();
+            });
 
-            var tree = helper.Tree(startFrom, currentItem, takeLevel, htmlAttributes: new { @class = "nav" }, appendCreatorNode: appendCreatorNode, filter: filter);
- 
-            // get the parents to mark 'active'
-            var currentItemparents = new List<ContentItem>();
-            if (currentItem != startFrom)
-            {
-                currentItemparents = Find.EnumerateParents(currentItem).Where(x => !(x is IRootPage) && x != startFrom).ToList();
-            }
+            var node = builder.Build();
+            if (!includeRoot)
+                node.Children.RemoveAt(0);
 
-            tree.ClassProvider(
-                (node) => node.Parent != null && node.Parent.Current != null ? "dropdown-menu hidden-tablet hidden-phone" : string.Empty,
-                (node) =>
-                {
-                    // if children, indicate with a dropdown class
-                    var @class = node.Children.Count > 0 ? "dropdown" : string.Empty;
-
-                    // we only show active on first level
-                    if (node.Parent == null || node.Parent.Current == null)
-                    {
-                        if (currentItemparents.Contains(node.Current) || node.Current == currentItem)
-                        {
-                            return (@class + " active").Trim();
-                        }
-                    }
-
-                    return @class;
-                })
-                .LinkWriter((node, writer) =>
-                {
-                    var link = Link.To(node.Current);
-                    if (node.Children.Count > 0)
-                    {
-                        link.Class(("dropdown-toggle " + (onHoverDropdowns ? "disabled" : "")).Trim());
-                        link.Attribute("data-toggle", "dropdown");
-                    }
-                    link.WriteTo(writer);
-                });
+            var tree = N2.Web.Tree.Using(node);
+            tree.HtmlAttibutes(new { @class = "nav" });
+            ClassifyAnchors(startFrom, currentItem, tree);
 
             return tree;
+        }
+
+        private static void ClassifyAnchors(ContentItem startsFrom, ContentItem current, N2.Web.Tree tree)
+        {
+            IList<ContentItem> ancestors = GenericFind<ContentItem, ContentItem>.ListParents(current, startsFrom, true);
+            if (ancestors.Contains(startsFrom))
+            {
+                ancestors.Remove(startsFrom);
+            }
+            tree.LinkWriter((n, w) =>
+            {
+                var link = n.Current.Link();
+                var @class = n.Current == current ? "current" : ancestors.Contains(n.Current) ? "trail" : "";
+                if (n.Children.Count > 0)
+                {
+                    @class += " dropdown-toggle";
+                    link.Attribute("data-toggle", "dropdown");
+                }
+                link.Class(@class).WriteTo(w);
+            });
+            tree.ULTagModifier((n, t) =>
+            {
+                if (n.Parent != null && n.Parent.Current != null)
+                {
+                    t.MergeAttribute("class", "dropdown-menu");
+                }
+            });
+            tree.LITagModifier((n, t) =>
+            {
+                //if children, indicate with a dropdown class
+                var @class = n.Children.Count > 0 ? "dropdown" : string.Empty;
+                @class += " " + (n.Current == current
+                                ? "active"
+                                : ancestors.Contains(n.Current) ? "active trail" : "");
+                t.MergeAttribute("class", @class.Trim());
+            });
         }
 
         /// <summary>
@@ -131,6 +146,28 @@ namespace N2Bootstrap.Library
                              }
                          });
             return tree;
+        }
+
+        public static N2.Web.Tree ULTagModifier(this N2.Web.Tree tree, Action<HierarchyNode<ContentItem>, TagBuilder> tagModifier)
+        {
+            return tree.Tag((n, t) =>
+            {
+                if (t.TagName.Equals("ul", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    tagModifier(n, t);
+                }
+            });
+        }
+
+        public static N2.Web.Tree LITagModifier(this N2.Web.Tree tree, Action<HierarchyNode<ContentItem>, TagBuilder> tagModifier)
+        {
+            return tree.Tag((n, t) =>
+            {
+                if (t.TagName.Equals("li", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    tagModifier(n, t);
+                }
+            });
         }
     }
 }

@@ -11,6 +11,7 @@ namespace N2Bootstrap.Library.ViewModels
         public bool WrapInWell { get; set; }
         public bool Stacked { get; set; }
         public bool AllowDropDown { get; set; }
+        public bool IncludeRoot { get; set; }
         public N2.Collections.ItemFilter Filtler { get; set; }
         public NavigationTypeEnum NavigationType { get; set; }
         public ContentItem StartFrom { get; set; }

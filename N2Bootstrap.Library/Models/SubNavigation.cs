@@ -19,10 +19,13 @@ namespace N2Bootstrap.Library.Models
         [EditableCheckBox(Title = "", CheckBoxText = "Allow child dropdowns", DefaultValue = false)]
         public virtual bool AllowDropDown { get; set; }
 
+        [EditableCheckBox(Title = "", CheckBoxText = "Include root", DefaultValue = true)]
+        public virtual bool IncludeRoot { get; set; }
+
         [EditableEnum(EnumType = typeof(NavigationTypeEnum), Title = "Navigation type", DefaultValue = NavigationTypeEnum.Tabs)]
         public virtual NavigationTypeEnum NavigationType { get; set; }
 
-        [EditableLink(Title="Start from")]
+        [EditableLink(Title = "Start from")]
         public virtual ContentItem StartFrom { get; set; }
 
         /// <summary>

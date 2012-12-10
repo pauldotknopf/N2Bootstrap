@@ -22,7 +22,6 @@
             navClass += " nav-pills";
             break;
     }
-    
-    @Html.BootstrapTree(startFrom, takeLevel: Model.AllowDropDown ? 3 : 2, filter:Model.Filtler).HtmlAttibutes(new { @class = navClass.Trim() });
+    @Html.BootstrapTree(startFrom, takeLevel: Model.AllowDropDown ? 3 : 2, filter:Model.Filtler, includeRoot:Model.IncludeRoot).HtmlAttibutes(new { @class = navClass.Trim() })
 }
 @(Html.Raw(Model.WrapInWell ? "</div>" : ""))
