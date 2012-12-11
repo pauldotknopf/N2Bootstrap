@@ -17,7 +17,6 @@
     <BasePath>$(buildDirectory)/Output/</BasePath>
     <Deployments>
       <Deployment name="Internal Deployment" path="E:\NuGetPackages\" />
-      <Deployment name="NuGet Deployment" path="http://nuget.org/" apiKey="7cd290b2-c425-44ac-840c-49b9ca9d200f" />
     </Deployments>
   </Package>
 </Packages>

@@ -131,6 +131,7 @@
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\PageModelBase.cs" />
     <Compile Include="Models\PartModelBase.cs" />
+    <Compile Include="Models\RootPage.cs" />
     <Compile Include="Models\SliderPart.cs" />
     <Compile Include="Models\StartPage.cs" />
     <Compile Include="Models\SubNavigation.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Properties\VersionInfo.cs" />
     <Compile Include="Resources\BootstrapResourceAttribute.cs" />
     <Compile Include="Services\ContainerWrappableDefinitionAppender.cs" />
+    <Compile Include="Services\MailSender.cs" />
     <Compile Include="Starter.cs" />
     <Compile Include="ViewModels\INavigationModel.cs" />
     <Compile Include="ViewModels\NavigationModel.cs" />
