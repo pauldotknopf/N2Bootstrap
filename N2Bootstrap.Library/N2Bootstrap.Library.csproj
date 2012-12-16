@@ -109,6 +109,7 @@
     <Compile Include="Cassette\Less\LessBundlePipelineModifier.cs" />
     <Compile Include="Cassette\Less\LessBundleProcessor.cs" />
     <Compile Include="Cassette\Less\LessCompileAsset.cs" />
+    <Compile Include="Controllers\FreeFormController.cs" />
     <Compile Include="DroppableZoneHelperExtensions.cs" />
     <Compile Include="Less\Importer.cs" />
     <Compile Include="Less\ThemedLessEngine.cs" />
@@ -144,6 +145,13 @@
     <Compile Include="Services\ContainerWrappableDefinitionAppender.cs" />
     <Compile Include="Services\MailSender.cs" />
     <Compile Include="Starter.cs" />
+    <Compile Include="Tokens\CheckboxTokenHelper.cs" />
+    <Compile Include="Tokens\FileTokenHelper.cs" />
+    <Compile Include="Tokens\FreeTextareaTokenHelper.cs" />
+    <Compile Include="Tokens\InputTokenHelper.cs" />
+    <Compile Include="Tokens\ITokenHelper.cs" />
+    <Compile Include="Tokens\RadioTokenHelper.cs" />
+    <Compile Include="Tokens\SelectTokenHelper.cs" />
     <Compile Include="ViewModels\INavigationModel.cs" />
     <Compile Include="ViewModels\NavigationModel.cs" />
   </ItemGroup>

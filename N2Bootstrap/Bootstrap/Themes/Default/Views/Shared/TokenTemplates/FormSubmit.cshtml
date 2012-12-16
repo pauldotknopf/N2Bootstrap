@@ -1,0 +1,11 @@
+﻿@model string
+@using N2.Web.Rendering
+@using N2.Web.Mvc.Html
+@if (string.IsNullOrEmpty(Model))
+{
+    <input class="btn" type="submit" />
+}
+else
+{
+    <input class="btn" type="submit" value="@Model" />
+}

@@ -28,7 +28,9 @@ namespace N2Bootstrap.Library.Services
                 return new SmtpClient("localhost", 25);
             }
 
-            var client = new SmtpClient(root.Host, root.Port);
+            var client = new SmtpClient();
+            client.Host = root.Host;
+            client.Port = root.Port;
             client.UseDefaultCredentials = root.UseDefaultCredentials;
             client.EnableSsl = root.UseSSL;
             client.Credentials = root.UseDefaultCredentials ? CredentialCache.DefaultNetworkCredentials : new NetworkCredential(root.User, root.Password);

@@ -169,6 +169,18 @@
     <Content Include="App_Data\SampleBootstrap.n2.xml.gz.txt" />
     <Content Include="Bootstrap\notes.txt" />
     <Content Include="Bootstrap\Themes\Default\preview.png" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\script.js" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\InvalidToken.cshtml" />
+    <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormCheckbox.cshtml" />
+    <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormFile.cshtml" />
+    <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormInput.cshtml" />
+    <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormRadio.cshtml" />
+    <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormSelect.cshtml" />
+    <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormSubmit.cshtml" />
+    <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormTextarea.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\jquery.validate.bootstrap.js" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\jquery.validate.js" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Bootstrap\Themes\notes.txt" />
     <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings-white.png" />
     <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings.png" />
@@ -291,6 +303,9 @@
     <Content Include="App_Data\SampleBootstrap.n2.xml.gz" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\SubNavigation.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\SubNavigation.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\FreeForm\Form.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\FreeForm\Index.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\FreeForm\Submitted.cshtml" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>

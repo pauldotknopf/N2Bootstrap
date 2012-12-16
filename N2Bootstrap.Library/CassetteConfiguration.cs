@@ -15,7 +15,11 @@ using N2Bootstrap.Library.Resources;
 [assembly: BootstrapResource("content/site.less", ResponsiveMode = BootstrapResourceAttribute.ResponsiveModeEnum.NotResponsive)]
 [assembly: BootstrapResource("content/site-responsive.less", ResponsiveMode = BootstrapResourceAttribute.ResponsiveModeEnum.Responsive)]
 [assembly: BootstrapResource("scripts/jquery-1.8.2.js", SortOrder = 0)]
-[assembly: BootstrapResource("scripts/bootstrap.js", SortOrder = 1)]
+[assembly: BootstrapResource("scripts/jquery.validate.js", SortOrder = 1)]
+[assembly: BootstrapResource("scripts/jquery.validate.unobtrusive.js", SortOrder = 2)]
+[assembly: BootstrapResource("scripts/jquery.validate.bootstrap.js", SortOrder = 3)]
+[assembly: BootstrapResource("scripts/bootstrap.js", SortOrder = 4)]
+[assembly: BootstrapResource("scripts/script.js", SortOrder = 5)]
 
 namespace N2Bootstrap.Library
 {
