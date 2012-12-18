@@ -28,12 +28,11 @@ namespace N2Bootstrap.Library.Controllers
         {
             bool formSubmit;
             if (Boolean.TryParse(Convert.ToString(TempData["FormSubmit"]), out formSubmit) && formSubmit)
-                return PartialView("Submitted");
+                return PartialView("Submitted", CurrentItem);
 
-            if (CurrentItem.GetTokens("Form").Any(dt => dt.Is("FormSubmit")))
-                return PartialView("Form");
-            else
-                return PartialView();
+            ViewData["hasSubmit"] = CurrentItem.GetTokens("Form").Any(dt => dt.Is("FormSubmit"));
+            
+            return PartialView(CurrentItem);
         }
 
         public ActionResult Submit(FormCollection collection)
@@ -147,49 +146,6 @@ namespace N2Bootstrap.Library.Controllers
                         var name = helper.GetFormName();
                         sw.WriteLine(name + ": " + collection[name]);
                     }
-
-                    
-                    //{
-                    //    continue;
-                    //}
-                    //else if (token.Is("FormTextarea"))
-                    //{
-                        
-                    //    sw.WriteLine(name + ": " + collection[name]);
-                    //}
-                    //else if (token.Is("FormFile"))
-                    //{
-                    //    name = token.Value ?? token.GenerateInputName();
-
-                    //    if (Request.Files[name] == null)
-                    //        continue;
-
-                    //    var postedFile = Request.Files[name];
-                    //    if (postedFile.ContentLength == 0)
-                    //        continue;
-
-                    //    var fileName = Path.GetFileName(postedFile.FileName);
-                    //    sw.WriteLine(name + ": " + fileName + " (" + (int) (postedFile.ContentLength/1024) + "kB)");
-                    //    mm.Attachments.Add(new Attachment(postedFile.InputStream, fileName, postedFile.ContentType));
-                    //}
-                    //else if (token.Is("FormInput") || token.Is("FormTextarea"))
-                    //{
-                    //    var inputName = token.Value ?? token.GenerateInputName();
-                    //    var value = collection[inputName];
-                    //    sw.WriteLine(name + ": " + value);
-                    //}
-                    //else if (token.Is("FormCheckbox"))
-                    //{
-                    //    var inputName = token.Value ?? token.GenerateInputName();
-                    //    var value = collection.Keys.Cast<string>().Contains(inputName);
-                    //    sw.WriteLine(name + ": " + value);
-                    //}
-                    //else
-                    //{
-                    //    var inputName = token.GetOptionalInputName(0, 1);
-                    //    var value = collection[inputName];
-                    //    sw.WriteLine(name + ": " + value);
-                    //}
                 }
 
                 mm.Body = sw.ToString();
@@ -197,9 +153,12 @@ namespace N2Bootstrap.Library.Controllers
 
             mailSender.Send(mm);
 
-            TempData.Add("FormSubmit", true);
-
-            return RedirectToParentPage();
+            if (!CurrentItem.UseAjax)
+            {
+                TempData.Add("FormSubmit", true);
+                return RedirectToParentPage();
+            }
+            return PartialView("Submitted", CurrentItem);
         }
     }
 }

@@ -1,7 +1,0 @@
-﻿<div class="freeform">
-	@Html.ValidationSummary()
-	@using (Html.BeginForm("Submit", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-	{
-		@Content.Display.Form
-	}
-</div>

@@ -1,8 +1,48 @@
-﻿<div class="freeform">
-	@Html.ValidationSummary()
-	@using (Html.BeginForm("Submit", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-	{
-		@Content.Display.Form
-		<input type="submit" value="Send" />
-	}
+﻿@model N2Bootstrap.Library.Models.FreeForm
+<div class="freeform">
+    @{
+        var uniqueId = Html.UniqueID("freeform");
+    }
+    @using (Html.BeginForm("Submit", null, FormMethod.Post, new { enctype = "multipart/form-data", id = uniqueId, }))
+    {
+        <div id="@(uniqueId)-inner">
+            @Content.Display.Form
+            @if (!((bool) ViewData["hasSubmit"]))
+            {
+               <input class="btn submit" type="submit" value="Send" /> 
+            }
+        </div>
+    }
 </div>
+@if (Model.UseAjax)
+{
+    <script type="text/javascript">
+        $(function () {
+            var useModal = @Model.UseModal.ToString().ToLower();
+            $('#@(uniqueId)').ajaxForm({
+                target: '#@(uniqueId)-inner',
+                beforeSubmit: function (arr, $form) {
+                    if(useModal)
+                        $("#ajax-loading").modal("show");
+                    $(".submit", $form).attr("disabled", "disableld");
+                },
+                error: function () {
+                    if(useModal)
+                        $("#ajax-loading").modal("hide");
+                },
+                success: function () {
+                    if(useModal)
+                        $("#ajax-loading").modal("hide");
+                }
+            });
+        });
+    </script>
+}
+@if (Model.UseModal && !Model.UseAjax)
+{
+    <script type="text/javascript">
+        $('#@(uniqueId) .submit').click(function() {
+            $("#ajax-loading").modal("show");
+        });
+    </script>
+}

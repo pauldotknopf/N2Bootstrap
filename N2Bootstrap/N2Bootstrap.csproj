@@ -169,6 +169,7 @@
     <Content Include="App_Data\SampleBootstrap.n2.xml.gz.txt" />
     <Content Include="Bootstrap\notes.txt" />
     <Content Include="Bootstrap\Themes\Default\preview.png" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\jquery.form.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\script.js" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\InvalidToken.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormCheckbox.cshtml" />
@@ -303,7 +304,6 @@
     <Content Include="App_Data\SampleBootstrap.n2.xml.gz" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\SubNavigation.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\SubNavigation.cshtml" />
-    <Content Include="Bootstrap\Themes\Default\Views\FreeForm\Form.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\FreeForm\Index.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\FreeForm\Submitted.cshtml" />
     <None Include="N2\n2cms.configuration.xsd">

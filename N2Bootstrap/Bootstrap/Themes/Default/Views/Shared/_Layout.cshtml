@@ -6,14 +6,14 @@
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en" class="no-js">  
+<html lang="en" class="no-js">
 <!--<![endif]-->
 <head>
     @{
         Html.RenderPartial("LayoutPartials/Head");
         if (IsSectionDefined("head"))
         {
-            @RenderSection("head")
+        @RenderSection("head")
         }
     }
 </head>
@@ -30,5 +30,12 @@
     </section>
     <section id="main-after">@{ Html.RenderPartial("Zones/AfterMain"); }</section>
     <footer id="footer">@{ Html.RenderPartial("LayoutPartials/Footer"); }</footer>
+    <div id="ajax-loading" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-body">
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 100%;"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
