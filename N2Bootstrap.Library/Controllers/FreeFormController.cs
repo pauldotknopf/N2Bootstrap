@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -151,7 +152,14 @@ namespace N2Bootstrap.Library.Controllers
                 mm.Body = sw.ToString();
             }
 
-            mailSender.Send(mm);
+            try
+            {
+                mailSender.Send(mm);
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine("Free form send email error:" + ex.Message);
+            }
 
             if (!CurrentItem.UseAjax)
             {

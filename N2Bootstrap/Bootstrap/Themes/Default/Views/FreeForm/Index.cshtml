@@ -9,7 +9,7 @@
             @Content.Display.Form
             @if (!((bool) ViewData["hasSubmit"]))
             {
-               <input class="btn submit" type="submit" value="Send" /> 
+               <p><input class="btn submit" type="submit" value="Send" /> </p>
             }
         </div>
     }
@@ -18,7 +18,7 @@
 {
     <script type="text/javascript">
         $(function () {
-            var useModal = @Model.UseModal.ToString().ToLower();
+            var useModal = @(Model.UseModal.ToString().ToLower());
             $('#@(uniqueId)').ajaxForm({
                 target: '#@(uniqueId)-inner',
                 beforeSubmit: function (arr, $form) {

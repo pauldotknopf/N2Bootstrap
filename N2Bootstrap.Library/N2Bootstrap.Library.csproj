@@ -110,6 +110,7 @@
     <Compile Include="Cassette\Less\LessBundleProcessor.cs" />
     <Compile Include="Cassette\Less\LessCompileAsset.cs" />
     <Compile Include="Controllers\FreeFormController.cs" />
+    <Compile Include="Details\EditableThemeConfigurations.cs" />
     <Compile Include="DroppableZoneHelperExtensions.cs" />
     <Compile Include="Less\Importer.cs" />
     <Compile Include="Less\ThemedLessEngine.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Defaults.cs" />
     <Compile Include="Details\EditableMultipleItemProviderSelectionAttribute.cs" />
     <Compile Include="HtmlHelpers.cs" />
+    <Compile Include="Models\BootstrapThemeConfiguration.cs" />
     <Compile Include="Models\Columns.cs" />
     <Compile Include="Models\ContentPage.cs" />
     <Compile Include="Models\FreeForm.cs" />

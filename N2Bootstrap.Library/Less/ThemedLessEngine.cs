@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using Cassette;
-using N2.Web;
 using N2.Web.Mvc.Html;
 using N2Bootstrap.Library.Cassette.Less;
 using dotless.Core;
 using dotless.Core.Importers;
 using dotless.Core.Parser;
+using dotless.Core.Parser.Infrastructure;
+using dotless.Core.Parser.Tree;
+using dotless.Core.Plugins;
 using dotless.Core.Stylizers;
+using Url = N2.Web.Url;
 
 namespace N2Bootstrap.Library.Less
 {
@@ -63,8 +67,14 @@ namespace N2Bootstrap.Library.Less
 
         public static CompileResult CompileLess(string file, string contents = null, string theme = null)
         {
+            if (string.IsNullOrEmpty(theme))
+                theme = "Default";
+
             var importedFilePaths = new HashSet<string>();
             var engine = new LessEngine(new Parser(new ConsoleStylizer(), new Importer(importedFilePaths, file, theme)));
+            var plugins = new List<IPluginConfigurator>();
+            plugins.Add(new PuginConfigurator());
+            engine.Plugins = plugins;
             if (string.IsNullOrEmpty(contents))
             {
                 using (var sr = new StreamReader(System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(file).Open()))
@@ -75,5 +85,55 @@ namespace N2Bootstrap.Library.Less
             var result = engine.TransformToCss(contents, file);
             return new CompileResult(result, importedFilePaths);
         }
+    }
+
+    public class Plugin : VisitorPlugin
+    {
+        public override VisitorPluginType AppliesTo
+        {
+            get { return VisitorPluginType.BeforeEvaluation; }
+        }
+
+        public override dotless.Core.Parser.Infrastructure.Nodes.Node Execute(dotless.Core.Parser.Infrastructure.Nodes.Node node, out bool visitDeeper)
+        {
+            visitDeeper = true;
+
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                return node;
+            }
+
+            if (node is Rule)
+            {
+                var rule = node as Rule;
+                if (rule.Variable && rule.Name == "@bodyBackground")
+                {
+                    var parse = new Parser();
+                    var ruleset = parse.Parse("@bodyBackground: @pink;", "dynamic.less");
+                    return ruleset.Rules[0] as Rule;
+                }
+            }
+
+            return node;
+        }
+
+        public override void OnPreVisiting(Env env)
+        {
+            base.OnPreVisiting(env);
+        }
+
+        public override void OnPostVisiting(Env env)
+        {
+            base.OnPostVisiting(env);
+        }
+    }
+
+    public class PuginConfigurator : dotless.Core.Plugins.GenericPluginConfigurator<Plugin>
+    {
+        
     }
 }
