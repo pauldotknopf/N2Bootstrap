@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Cassette;
 using N2.Web.Mvc.Html;
 using N2Bootstrap.Library.Cassette.Less;
+using N2Bootstrap.Library.Models;
 using dotless.Core;
 using dotless.Core.Importers;
 using dotless.Core.Parser;
@@ -65,16 +66,24 @@ namespace N2Bootstrap.Library.Less
             return result;
         }
 
-        public static CompileResult CompileLess(string file, string contents = null, string theme = null)
+        public static CompileResult CompileLess(string file, string contents, string theme)
+        {
+            return CompileLess(file, contents, theme, GetThemeVariables(BootstrapThemeConfiguration.GetOrCreateThemeConfiguration(theme)));
+        }
+
+        public static CompileResult CompileLess(string file, string contents, string theme, Dictionary<string, string> themeLessVariables)
         {
             if (string.IsNullOrEmpty(theme))
                 theme = "Default";
 
             var importedFilePaths = new HashSet<string>();
-            var engine = new LessEngine(new Parser(new ConsoleStylizer(), new Importer(importedFilePaths, file, theme)));
-            var plugins = new List<IPluginConfigurator>();
-            plugins.Add(new PuginConfigurator());
-            engine.Plugins = plugins;
+            var engine = new LessEngine(new Parser(new ConsoleStylizer(), new Importer(importedFilePaths, file, theme)))
+            {
+                Plugins = new List<IPluginConfigurator>
+                {
+                    new VariableOverridePluginConfigurator(themeLessVariables)
+                }
+            };
             if (string.IsNullOrEmpty(contents))
             {
                 using (var sr = new StreamReader(System.Web.Hosting.HostingEnvironment.VirtualPathProvider.GetFile(file).Open()))
@@ -85,55 +94,22 @@ namespace N2Bootstrap.Library.Less
             var result = engine.TransformToCss(contents, file);
             return new CompileResult(result, importedFilePaths);
         }
-    }
 
-    public class Plugin : VisitorPlugin
-    {
-        public override VisitorPluginType AppliesTo
+        public static Dictionary<string, string> GetThemeVariables(BootstrapThemeConfiguration configuration)
         {
-            get { return VisitorPluginType.BeforeEvaluation; }
-        }
-
-        public override dotless.Core.Parser.Infrastructure.Nodes.Node Execute(dotless.Core.Parser.Infrastructure.Nodes.Node node, out bool visitDeeper)
-        {
-            visitDeeper = true;
-
-            try
+            var variables = new Dictionary<string, string>();
+            var definition = N2.Context.Definitions.GetDefinition(configuration);
+            foreach (var lessVariableEditable in definition.Editables.Where(x => x is Details.EditableLessVariableAttribute).Cast<Details.EditableLessVariableAttribute>())
             {
-                
+                if (variables.ContainsKey(lessVariableEditable.LessVariableName))
+                    throw new Exception("You cannot have multipe less variable declarations (" + lessVariableEditable.LessVariableName + ")");
+                variables[lessVariableEditable.LessVariableName] = (string)configuration[lessVariableEditable.Name];
             }
-            catch (Exception ex)
-            {
-                return node;
-            }
-
-            if (node is Rule)
-            {
-                var rule = node as Rule;
-                if (rule.Variable && rule.Name == "@bodyBackground")
-                {
-                    var parse = new Parser();
-                    var ruleset = parse.Parse("@bodyBackground: @pink;", "dynamic.less");
-                    return ruleset.Rules[0] as Rule;
-                }
-            }
-
-            return node;
-        }
-
-        public override void OnPreVisiting(Env env)
-        {
-            base.OnPreVisiting(env);
-        }
-
-        public override void OnPostVisiting(Env env)
-        {
-            base.OnPostVisiting(env);
+            return variables;
         }
     }
 
-    public class PuginConfigurator : dotless.Core.Plugins.GenericPluginConfigurator<Plugin>
-    {
-        
-    }
+    
+
+    
 }

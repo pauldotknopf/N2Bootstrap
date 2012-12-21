@@ -110,11 +110,15 @@
     <Compile Include="Cassette\Less\LessBundleProcessor.cs" />
     <Compile Include="Cassette\Less\LessCompileAsset.cs" />
     <Compile Include="Controllers\FreeFormController.cs" />
+    <Compile Include="Details\EditableLessVariable.cs" />
     <Compile Include="Details\EditableThemeConfigurations.cs" />
     <Compile Include="DroppableZoneHelperExtensions.cs" />
     <Compile Include="Less\Importer.cs" />
     <Compile Include="Less\ThemedLessEngine.cs" />
     <Compile Include="Cassette\Less\ThemedLessHandler.cs" />
+    <Compile Include="Less\ThemedLessLogger.cs" />
+    <Compile Include="Less\VariableOverridePlugin.cs" />
+    <Compile Include="Less\VariableOverridePluginConfigurator.cs" />
     <Compile Include="Less\VirtualFileReader.cs" />
     <Compile Include="Cassette\UrlGenerator.cs" />
     <Compile Include="Controllers\LanguageIntersectionController.cs" />

@@ -7,6 +7,7 @@ using N2.Definitions;
 using N2.Details;
 using N2.Integrity;
 using N2.Web.UI;
+using N2Bootstrap.Library.Details;
 
 namespace N2Bootstrap.Library.Models
 {
@@ -17,10 +18,12 @@ namespace N2Bootstrap.Library.Models
         IconUrl = "{ManagementUrl}/Resources/icons/page_gear.png",
         TemplateUrl = "{ManagementUrl}/Myself/Root.aspx")]
     [RestrictParents(AllowedTypes.None)]
+    [TabContainer("Themes", "Themes", 100)]
     [TabContainer("Search", "Search", 200)]
     [TabContainer("Email", "Email", 100)]
     [FieldSetContainer("EmailField", "Email", 100, ContainerName = "Email")]
     [WithManageableSearch(ContainerName = "Search")]
+    [EditableThemeConfigurations(ContainerName = "Themes")]
     public class RootPage : ContentItem, IRootPage, ISystemNode
     {
         [EditableText("Host", 1, ContainerName = "EmailField")]

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Web.Hosting;
 using System.Web.UI;
 using N2.Edit.Workflow;
@@ -12,27 +11,57 @@ using N2.Web.UI.WebControls;
 
 namespace N2Bootstrap.Library.Details
 {
-    public class EditableThemeConfigurations : N2.Details.AbstractEditableAttribute, N2.Definitions.IDefinitionRefiner
+    [AttributeUsage(AttributeTargets.Class, Inherited = true)]
+    public class EditableThemeConfigurations : N2.Details.AbstractEditableAttribute
     {
-        protected override System.Web.UI.Control AddEditor(System.Web.UI.Control container)
+        public EditableThemeConfigurations()
         {
-            Control panel = AddPanel(container);
+            Name = "EditableThemeConfigurations";
+        }
+
+        protected override Control AddEditor(Control container)
+        {
+            var panel = AddPanel(container);
             foreach (var themeDirectory in GetThemeDirectories())
             {
-                ItemEditor editor = new ItemEditor();
-                editor.ID = Name;
+                var themeName = Path.GetFileName(themeDirectory);
+                if (string.IsNullOrEmpty(themeName)) continue;
+                var tabContainer = new TabContainerAttribute(themeName + "-tab", themeName, 0);
+                var tab = tabContainer.AddTo(panel);
+                var editor = new ItemEditor { ID = themeName.ToLower() };
                 editor.Init += OnChildEditorInit;
-                panel.Controls.Add(editor);
+                tab.Controls.Add(editor);
             }
             return panel;
         }
 
-        public override void UpdateEditor(N2.ContentItem item, System.Web.UI.Control editor)
+        public override Control AddTo(Control container)
         {
+            var editor = AddEditor(container);
+            return editor;
         }
 
-        public override bool UpdateItem(N2.ContentItem item, System.Web.UI.Control editor)
+        public override void UpdateEditor(N2.ContentItem item, Control editor)
         {
+
+        }
+
+        public override bool UpdateItem(N2.ContentItem item, Control editor)
+        {
+            var themeEditors = editor.Controls.Cast<Control>()
+                .Where(x => x is TabPanel)
+                .SelectMany(x => x.Controls.Cast<Control>().Where(y => y is ItemEditor))
+                .Cast<ItemEditor>()
+                .ToList();
+
+            foreach (var themeEditor in themeEditors)
+            {
+                themeEditor.UpdateObject(new CommandContext(themeEditor.Definition,
+                    themeEditor.CurrentItem,
+                    "theme-editor",
+                    N2.Context.Current.RequestContext.User));
+            }
+
             return true;
         }
 
@@ -41,10 +70,10 @@ namespace N2Bootstrap.Library.Details
             string path = HostingEnvironment.MapPath(Url.ResolveTokens(Url.ThemesUrlToken));
             if (Directory.Exists(path))
             {
-                foreach (string directoryPath in Directory.GetDirectories(path))
+                foreach (var directoryPath in Directory.GetDirectories(path))
                 {
                     string directoryName = Path.GetFileName(directoryPath);
-                    if (!directoryName.StartsWith("."))
+                    if (directoryName != null && !directoryName.StartsWith("."))
                         yield return directoryPath;
                 }
             }
@@ -53,23 +82,8 @@ namespace N2Bootstrap.Library.Details
         protected virtual void OnChildEditorInit(object sender, EventArgs e)
         {
             var itemEditor = sender as ItemEditor;
-            var parentEditor = ItemUtility.FindInParents<IItemEditor>(itemEditor.Parent);
-            itemEditor.CurrentItem = parentEditor.CurrentItem;
-        }
-
-        public void Refine(N2.Definitions.ItemDefinition currentDefinition, IList<N2.Definitions.ItemDefinition> allDefinitions)
-        {
-            currentDefinition.Editables.Add(this);
-        }
-
-        public int RefinementOrder
-        {
-            get { return int.MaxValue; }
-        }
-
-        public int CompareTo(N2.Definitions.ISortableRefiner other)
-        {
-            return RefinementOrder.CompareTo(other.RefinementOrder);
+            if (itemEditor != null)
+                itemEditor.CurrentItem = Models.BootstrapThemeConfiguration.GetOrCreateThemeConfiguration(itemEditor.ID.ToLower());
         }
     }
 }
