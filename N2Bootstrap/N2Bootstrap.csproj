@@ -227,7 +227,9 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Bootstrap\Themes\Metro\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -306,7 +308,6 @@
     <Content Include="Bootstrap\Themes\Default\Content\site.less" />
     <Content Include="Bootstrap\Themes\Default\Content\site-responsive.less" />
     <Content Include="Bootstrap\Themes\Default\Content\theme-variables.less" />
-    <Content Include="Bootstrap\Themes\Metro\Content\less\bootstrap.less" />
     <Content Include="App_Data\SampleBootstrap.n2.xml.gz" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\SubNavigation.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\SubNavigation.cshtml" />
