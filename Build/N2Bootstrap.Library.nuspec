@@ -9,8 +9,8 @@
     <projectUrl>http://github.com/theonlylawislove/N2Bootstrap</projectUrl>
     <licenseUrl>http://github.com/theonlylawislove/N2Bootstrap</licenseUrl>
     <dependencies>
-      <dependency id="N2CMS.Library" version="[2.4.9.1]" />
-      <dependency id="N2CMS.Razor" version="[2.4.9.1]" />
+      <dependency id="N2CMS.Library" version="[2.4.9.2]" />
+      <dependency id="N2CMS.Razor" version="[2.4.9.2]" />
       <dependency id="DotlessClientOnly" version="[1.3.1.0]" />
       <dependency id="Cassette.Views" version="[2.0.0]" />
     </dependencies>
