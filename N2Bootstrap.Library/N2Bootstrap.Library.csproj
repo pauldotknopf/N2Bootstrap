@@ -38,6 +38,10 @@
     <Reference Include="Cassette">
       <HintPath>..\packages\Cassette.2.0.0\lib\net40-client\Cassette.dll</HintPath>
     </Reference>
+    <Reference Include="Cassette.Aspnet, Version=2.0.0.17975, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cassette.Aspnet.2.0.0\lib\net40\Cassette.Aspnet.dll</HintPath>
+    </Reference>
     <Reference Include="Cassette.Views">
       <HintPath>..\packages\Cassette.Views.2.0.0\lib\net40\Cassette.Views.dll</HintPath>
     </Reference>

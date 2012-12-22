@@ -16,6 +16,7 @@ using dotless.Core.Parser.Infrastructure;
 using dotless.Core.Parser.Tree;
 using dotless.Core.Plugins;
 using dotless.Core.Stylizers;
+using Context = N2.Context;
 using Url = N2.Web.Url;
 
 namespace N2Bootstrap.Library.Less
@@ -68,7 +69,7 @@ namespace N2Bootstrap.Library.Less
 
         public static CompileResult CompileLess(string file, string contents, string theme)
         {
-            return CompileLess(file, contents, theme, GetThemeVariables(BootstrapThemeConfiguration.GetOrCreateThemeConfiguration(theme)));
+            return CompileLess(file, contents, theme, GetThemeVariables(GetOrCreateThemeConfiguration(theme)));
         }
 
         public static CompileResult CompileLess(string file, string contents, string theme, Dictionary<string, string> themeLessVariables)
@@ -77,7 +78,10 @@ namespace N2Bootstrap.Library.Less
                 theme = "Default";
 
             var importedFilePaths = new HashSet<string>();
-            var engine = new LessEngine(new Parser(new ConsoleStylizer(), new Importer(importedFilePaths, file, theme)))
+            var logger = new ThemedLessLogger(theme);
+            var engine = new LessEngine(
+                new Parser(new ConsoleStylizer(), new Importer(importedFilePaths, file, theme)),
+                logger, false, false)
             {
                 Plugins = new List<IPluginConfigurator>
                 {
@@ -92,6 +96,11 @@ namespace N2Bootstrap.Library.Less
                 }
             }
             var result = engine.TransformToCss(contents, file);
+            if (logger.LoggedErrors.Any())
+            {
+                throw new Exception("Error(s) compiling less. " +
+                                    string.Join(" - ", logger.LoggedErrors.Select(x => "\"" + x + "\"").ToArray()));
+            }
             return new CompileResult(result, importedFilePaths);
         }
 
@@ -107,9 +116,28 @@ namespace N2Bootstrap.Library.Less
             }
             return variables;
         }
+
+        public static BootstrapThemeConfiguration GetOrCreateThemeConfiguration(string theme = null)
+        {
+            if (string.IsNullOrEmpty(theme))
+                theme = "Default";
+
+            var themeItem = N2.Find.Items
+                .Where
+                        .Type.Eq(typeof(BootstrapThemeConfiguration))
+                    .And
+                        .Name.Eq(theme.ToLower())
+                .Select<BootstrapThemeConfiguration>()
+                .FirstOrDefault();
+
+            if (themeItem == null)
+            {
+                themeItem = new BootstrapThemeConfiguration();
+                themeItem.Name = theme.ToLower();
+                Context.Persister.Save(themeItem);
+            }
+
+            return themeItem;
+        }
     }
-
-    
-
-    
 }

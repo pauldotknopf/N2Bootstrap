@@ -4,42 +4,32 @@ using System.Linq;
 using System.Text;
 using N2;
 using N2.Details;
+using N2.Web.UI;
 
 namespace N2Bootstrap.Library.Models
 {
     [Definition]
+    [FieldSetContainer("Scaffolding", "Scaffolding", 0)]
+    [FieldSetContainer("Links", "Links", 0)]
     public class BootstrapThemeConfiguration : ContentItem
     {
-        [Details.EditableLessVariable(LessVariableName = "bodyBackground", DefaultValue = "@white")]
-        public virtual string BodyBackgroundColor { get; set; }
+        #region Scaffolding
 
-        [Details.EditableLessVariable(LessVariableName = "gridColumnWidth", DefaultValue = "60px")]
-        public virtual string GridColumnWidth { get; set; }
+        [Details.EditableLessVariable(LessVariableName = "bodyBackground", Placeholder = "@white", ContainerName = "Scaffolding")]
+        public virtual string BodyBackground { get; set; }
 
-        #region Helpers
+        [Details.EditableLessVariable(LessVariableName = "textColor", Placeholder = "@grayDark", ContainerName = "Scaffolding")]
+        public virtual string TextColor { get; set; }
 
-        public static BootstrapThemeConfiguration GetOrCreateThemeConfiguration(string theme = null)
-        {
-            if (string.IsNullOrEmpty(theme))
-                theme = "Default";
+        #endregion
 
-            var themeItem = N2.Find.Items
-                .Where
-                        .Type.Eq(typeof(BootstrapThemeConfiguration))
-                    .And
-                        .Name.Eq(theme.ToLower())
-                .Select<BootstrapThemeConfiguration>()
-                .FirstOrDefault();
+        #region Links
 
-            if (themeItem == null)
-            {
-                themeItem = new BootstrapThemeConfiguration();
-                themeItem.Name = theme.ToLower();
-                Context.Persister.Save(themeItem);
-            }
+        [Details.EditableLessVariable(LessVariableName = "linkColor", Placeholder = "#08c", ContainerName = "Links")]
+        public virtual string LinkColor { get; set; }
 
-            return themeItem;
-        }
+        [Details.EditableLessVariable(LessVariableName = "linkColorHover", Placeholder = "darken(@linkColor, 15%)", ContainerName = "Links")]
+        public virtual string LinkColorHover { get; set; }
 
         #endregion
     }
