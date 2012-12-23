@@ -122,13 +122,23 @@ namespace N2Bootstrap.Library.Less
             if (string.IsNullOrEmpty(theme))
                 theme = "Default";
 
-            var themeItem = N2.Find.Items
-                .Where
-                        .Type.Eq(typeof(BootstrapThemeConfiguration))
-                    .And
-                        .Name.Eq(theme.ToLower())
-                .Select<BootstrapThemeConfiguration>()
-                .FirstOrDefault();
+            BootstrapThemeConfiguration themeItem;
+
+            try
+            {
+                themeItem = N2.Find.Items
+                              .Where
+                              .Type.Eq(typeof (BootstrapThemeConfiguration))
+                              .And
+                              .Name.Eq(theme.ToLower())
+                              .Select<BootstrapThemeConfiguration>()
+                              .FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                // when product isn't installed yet, (no db, etc), catch errors and return empty (no variable overrides) theme configuartion
+                themeItem = new BootstrapThemeConfiguration();
+            }
 
             if (themeItem == null)
             {
