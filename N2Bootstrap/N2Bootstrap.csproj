@@ -352,7 +352,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="CustomPostBuild" AfterTargets="AfterBuild" Condition="'$(ZipBootstrap)'=='true'">
-    <Message Text="Creating Method.Zip" />
+    <Message Text="Creating Blog.Zip" />
     <ItemGroup>
       <!-- All files from build -->
       <ZipFiles Include="$(MSBuildProjectDirectory)\Bootstrap\**\*.*" Exclude="*.zip" />
