@@ -16,7 +16,7 @@ namespace N2Bootstrap.Library.Resources
         private ResponsiveModeEnum _responsiveMode = ResponsiveModeEnum.Both;
         private int _sortOrder;
 
-        public BootstrapResourceAttribute(string themedResourceLocation, int sortOrder = 0)
+        public BootstrapResourceAttribute(string themedResourceLocation, int sortOrder = 100)
         {
             if (string.IsNullOrEmpty(themedResourceLocation))
                 throw new ArgumentNullException("themedResourceLocation", "You must provide a themed resource location");
