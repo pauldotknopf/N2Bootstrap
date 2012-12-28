@@ -175,10 +175,13 @@
   <ItemGroup>
     <Content Include="App_Data\SampleBootstrap.n2.xml.gz.txt" />
     <Content Include="Bootstrap\notes.txt" />
+    <Content Include="Bootstrap\Themes\Default\Content\img\ico-twitter.png" />
     <Content Include="Bootstrap\Themes\Default\preview.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.form.js" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\jquery.tweet.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\script.js" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\InvalidToken.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Tweets.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormCheckbox.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormFile.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormInput.cshtml" />
@@ -190,8 +193,8 @@
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.validate.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Bootstrap\Themes\notes.txt" />
-    <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings-white.png" />
-    <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings.png" />
+    <Content Include="Bootstrap\Themes\Default\Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Bootstrap\Themes\Default\Content\img\glyphicons-halflings.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\bootstrap.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.8.2.js" />
     <Content Include="N2\history.txt" />

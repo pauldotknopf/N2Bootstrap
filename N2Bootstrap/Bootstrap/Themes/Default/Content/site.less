@@ -4,16 +4,14 @@
 #nav {
     position: inherit;
     margin-bottom: 20px;
-}
-    /*the brand has a lot of padding for text. we use images, so give it room to breath*/
-    #nav .brand {
+	.brand {
         padding-top: 5px;
         padding-bottom: 5px;
-    }
-
-        #nav .brand img {
+		img {
             max-height: 30px;
         }
+    }
+}
 
 #footer {
     background-color: @wellBackground;
@@ -28,12 +26,25 @@
 }
 
 /*remove margin from ajax loading progress bar*/
-#ajax-loading{
-	width:200px;
-	margin:0px 0px 0px -100px;
+#ajax-loading {
+    width: 200px;
+    margin: 0px 0px 0px -100px;
+	.progress {
+        margin: 0px;
+    }
 }
-#ajax-loading .progress{
-	margin:0px;
+
+/* tweets */
+.tweets-container {
+    .media > a {
+        .pull-left;
+        margin: 0 10px 10px 0;
+    }
+
+    ul, li {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 @import "theme.less";

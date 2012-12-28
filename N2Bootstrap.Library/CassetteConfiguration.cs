@@ -19,8 +19,9 @@ using N2Bootstrap.Library.Resources;
 [assembly: BootstrapResource("scripts/jquery.validate.unobtrusive.js", SortOrder = 2)]
 [assembly: BootstrapResource("scripts/jquery.validate.bootstrap.js", SortOrder = 3)]
 [assembly: BootstrapResource("scripts/jquery.form.js", SortOrder = 4)]
-[assembly: BootstrapResource("scripts/bootstrap.js", SortOrder = 5)]
-[assembly: BootstrapResource("scripts/script.js", SortOrder = 6)]
+[assembly: BootstrapResource("scripts/jquery.tweet.js", SortOrder = 5)]
+[assembly: BootstrapResource("scripts/bootstrap.js", SortOrder = 6)]
+[assembly: BootstrapResource("scripts/script.js", SortOrder = 7)]
 
 namespace N2Bootstrap.Library
 {

@@ -1,0 +1,33 @@
+﻿@model N2Bootstrap.Library.Models.Tweets
+@{
+    var uniqueId = Html.UniqueID("tweets");
+}
+@if (Model.ShowTitle && !string.IsNullOrEmpty(Model.Title))
+{
+    <h3>@Model.Title</h3>
+}
+<div id="@uniqueId" class="tweets-container"></div>
+<script type="text/javascript">
+    $(function() {
+        var template = "<div class='media'>@(Model.ShowAvatar ? "{avatar}" : "")<div class='media-body'><p>{text}@(Model.EnableRetweets ? " » {retweet_action}" : "")</p></div></div>";
+        $("#@uniqueId").tweet({
+            join_text: "auto",
+            @if (!string.IsNullOrEmpty(Model.TwitterHandle))
+            {
+                <text>
+            username: "@Model.TwitterHandle",
+                </text>
+            }
+            @if (!string.IsNullOrEmpty(Model.Query))
+            {
+                <text>
+            query: "@Model.Query",
+                </text>
+            }
+            avatar_size: @Model.AvatarSize,
+            count: @Model.NumberOfTweets,
+            loading_text: "loading tweets...",
+            template: template,
+        }).bind("loaded", function () { $(this).find("a").attr("target", "_blank"); });
+    });
+</script>
