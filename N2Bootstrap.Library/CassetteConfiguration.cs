@@ -87,15 +87,15 @@ namespace N2Bootstrap.Library
                     if (directoryName != null && !directoryName.StartsWith("."))
                     {
                         bundles.Add<StylesheetBundle>(directoryName + "-css",
-                            regularCss.Select(x => GetThemedItem(x, directory, defaultThemePath)),
+                            regularCss.Select(x => GetThemedItem(x, directory, defaultThemePath)).Where(x => HostingEnvironment.VirtualPathProvider.FileExists("~/" + x)),
                             (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
 
                         bundles.Add<StylesheetBundle>(directoryName + "-responsive-css",
-                            responsiveCss.Select(x => GetThemedItem(x, directory, defaultThemePath)),
+                            responsiveCss.Select(x => GetThemedItem(x, directory, defaultThemePath)).Where(x => HostingEnvironment.VirtualPathProvider.FileExists("~/" + x)),
                             (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
 
                         bundles.Add<ScriptBundle>(directoryName + "-js",
-                            javascript.Select(x => GetThemedItem(x, directory, defaultThemePath)),
+                            javascript.Select(x => GetThemedItem(x, directory, defaultThemePath)).Where(x => HostingEnvironment.VirtualPathProvider.FileExists("~/" + x)),
                             (bundle) => bundle.HtmlAttributes.Add("data-theme", directoryName));
                     }
                 }
