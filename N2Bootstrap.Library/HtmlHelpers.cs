@@ -174,6 +174,8 @@ namespace N2Bootstrap.Library
 
         #endregion
 
+        #region PagingLinksBuilder
+
         /// <summary>
         /// Builds a paging links builder
         /// </summary>
@@ -186,5 +188,19 @@ namespace N2Bootstrap.Library
         {
             return new PagingLinksBuilder(currentPage, totalPages, pageUrlBuilder);
         }
+
+        /// <summary>
+        /// Builds a paging links builder
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <param name="pagedList"></param>
+        /// <param name="pageUrlBuilder"></param>
+        /// <returns></returns>
+        public static PagingLinksBuilder PagingLinksBuilder<T>(this HtmlHelper helper, PagedList<TabPanel> pagedList, Func<int, string> pageUrlBuilder)
+        {
+            return PagingLinksBuilder(helper, pagedList.PageNumber, pagedList.TotalPages, pageUrlBuilder);
+        }
+
+        #endregion
     }
 }
