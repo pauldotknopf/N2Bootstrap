@@ -45,6 +45,8 @@ namespace N2Bootstrap.Library
             return MvcHtmlString.Create(html);
         }
 
+        #region Tree
+
         /// <summary>
         /// Build a tree that is bootstrap friendly
         /// </summary>
@@ -168,6 +170,21 @@ namespace N2Bootstrap.Library
                     tagModifier(n, t);
                 }
             });
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Builds a paging links builder
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <param name="currentPage"></param>
+        /// <param name="totalPages"></param>
+        /// <param name="pageUrlBuilder"></param>
+        /// <returns></returns>
+        public static PagingLinksBuilder PagingLinksBuilder(this HtmlHelper helper, int currentPage, int totalPages, Func<int, string> pageUrlBuilder)
+        {
+            return new PagingLinksBuilder(currentPage, totalPages, pageUrlBuilder);
         }
     }
 }
