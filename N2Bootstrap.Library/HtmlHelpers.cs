@@ -196,7 +196,7 @@ namespace N2Bootstrap.Library
         /// <param name="pagedList"></param>
         /// <param name="pageUrlBuilder"></param>
         /// <returns></returns>
-        public static PagingLinksBuilder PagingLinksBuilder<T>(this HtmlHelper helper, PagedList<TabPanel> pagedList, Func<int, string> pageUrlBuilder)
+        public static PagingLinksBuilder PagingLinksBuilder<T>(this HtmlHelper helper, PagedList<T> pagedList, Func<int, string> pageUrlBuilder)
         {
             return PagingLinksBuilder(helper, pagedList.PageNumber, pagedList.TotalPages, pageUrlBuilder);
         }
