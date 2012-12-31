@@ -1,3 +1,9 @@
-﻿<div class="entry-content">
-	@Content.Display.Text
+﻿@if (!string.IsNullOrEmpty(Content.Data.Image))
+{
+    <figure class="page-image">
+        <img src="@Content.Data.Image" class="img-@Content.Data.ImageDisplayType.ToString().ToLower()" alt="@Content.Data.Title" />
+    </figure>
+}
+<div class="page-text">
+    @Content.Display.Text
 </div>

@@ -90,6 +90,23 @@ namespace N2Bootstrap.Library.Models
         [EditableCheckBox(CheckBoxText = "Show page title", Title = "", SortOrder = 202, ContainerName = Defaults.Containers.Layout, DefaultValue = true)]
         public virtual bool ShowPageTitle { get; set; }
 
+        /// <summary>
+        /// How to render the image (using bootstrap classes)
+        /// </summary>
+        [EditableEnum(Title="Image display type", SortOrder=203, ContainerName=Defaults.Containers.Layout, DefaultValue=ImageDisplayTypeEnum.Polaroid, EnumType=typeof(ImageDisplayTypeEnum))]
+        public virtual ImageDisplayTypeEnum ImageDisplayType { get; set; }
+
+        #endregion
+
+        #region NestedTypes
+        
+        public enum ImageDisplayTypeEnum
+        {
+            Rounded,
+            Circle,
+            Polaroid
+        }
+
         #endregion
     }
 }
