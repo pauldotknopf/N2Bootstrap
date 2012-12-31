@@ -14,23 +14,6 @@ namespace N2Bootstrap.Library.Models
     /// <summary>
     /// Redirects to the child start page that matches the user agent's language.
     /// </summary>
-    /// 
-    /// 
-
-            //register.Page(title: "Language intersection", description: "Redirects to the child start page that matches the user agent's language.");
-            //register.Icon("{IconsUrl}/world_go.png");
-            //register.Definition.Installer = N2.Installation.InstallerHint.PreferredStartPage;
-            //register.RestrictParents(typeof(IRootPage));
-
-            //using (register.RecursiveContainer("SiteContainer", headingFormat: null).Allow(Permission.Administer).Begin())
-            //{
-            //    using (register.TabContainer(Defaults.Containers.Site, "Site").Begin())
-            //    {
-            //        register.On(sp => sp.HostName).Text("Site host name (DNS)")
-            //            .Help("Sets a host name for this site/language. The web server must be configured to accept this host name for this to work.");
-
-            //    }
-            //}
     [PageDefinition("Language intersection", 
         Description = "Redirects to the child start page that matches the user agent's language.", 
         InstallerVisibility=InstallerHint.PreferredStartPage,
