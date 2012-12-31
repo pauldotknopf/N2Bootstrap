@@ -60,8 +60,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\N2CMS.Library.2.4.9.2\lib\N2.dll</HintPath>
     </Reference>
-    <Reference Include="N2.Extensions">
-      <HintPath>..\packages\N2CMS.Management.2.4.9.1\lib\N2.Extensions.dll</HintPath>
+    <Reference Include="N2.Extensions, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\N2CMS.Management.2.4.9.2\lib\N2.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="N2.Razor, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
