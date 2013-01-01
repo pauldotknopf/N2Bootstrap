@@ -110,5 +110,20 @@ namespace N2Bootstrap.Library
                     return "img-" + imageDisplayType.ToString().ToLower();
             }
         }
+
+        public static string PreviewText(string text, int numberOfCharacters = 140)
+        {
+            if (string.IsNullOrEmpty(text))
+                return text;
+
+            if (text.Length <= numberOfCharacters) return text;
+
+            var pos = text.IndexOf(" ", numberOfCharacters, System.StringComparison.Ordinal);
+
+            if (pos >= 0)
+                return text.Substring(0, pos) + "...";
+
+            return text;
+        }
 	}
 }
