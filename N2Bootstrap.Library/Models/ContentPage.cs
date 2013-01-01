@@ -93,19 +93,8 @@ namespace N2Bootstrap.Library.Models
         /// <summary>
         /// How to render the image (using bootstrap classes)
         /// </summary>
-        [EditableEnum(Title="Image display type", SortOrder=203, ContainerName=Defaults.Containers.Layout, DefaultValue=ImageDisplayTypeEnum.Polaroid, EnumType=typeof(ImageDisplayTypeEnum))]
-        public virtual ImageDisplayTypeEnum ImageDisplayType { get; set; }
-
-        #endregion
-
-        #region NestedTypes
-        
-        public enum ImageDisplayTypeEnum
-        {
-            Rounded,
-            Circle,
-            Polaroid
-        }
+        [EditableEnum(Title="Image display type", SortOrder=203, ContainerName=Defaults.Containers.Layout, DefaultValue=Defaults.ImageDisplayTypeEnum.None, EnumType=typeof(Defaults.ImageDisplayTypeEnum))]
+        public virtual Defaults.ImageDisplayTypeEnum ImageDisplayType { get; set; }
 
         #endregion
     }

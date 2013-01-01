@@ -22,6 +22,14 @@ namespace N2Bootstrap.Library
             ThreeColumn
         }
 
+        public enum ImageDisplayTypeEnum
+        {
+            Rounded,
+            Circle,
+            Polaroid,
+            None
+        }
+
 		public static class Containers
 		{
 			public const string Metadata = "Metadata";
@@ -90,6 +98,17 @@ namespace N2Bootstrap.Library
         private static IEnumerable<StartPage> GetTranslations(ContentItem currentPage)
         {
             return currentPage.GetChildren().OfType<StartPage>();
+        }
+
+        public static string GetImageClass(ImageDisplayTypeEnum imageDisplayType)
+        {
+            switch (imageDisplayType)
+            {
+                case ImageDisplayTypeEnum.None:
+                    return string.Empty;
+                default:
+                    return "img-" + imageDisplayType.ToString().ToLower();
+            }
         }
 	}
 }
