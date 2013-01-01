@@ -9,7 +9,7 @@
 <div id="@uniqueId" class="tweets-container"></div>
 <script type="text/javascript">
     $(function() {
-        var template = "<div class='media'>@(Model.ShowAvatar ? "{avatar}" : "")<div class='media-body'><p>{text}@(Model.EnableRetweets ? " » {retweet_action}" : "")</p></div></div>";
+        var template = "@(Model.ShowAvatar ? "{avatar}" : "")<div class='media-body'><p>{text}@(Model.EnableRetweets ? " » {retweet_action}" : "")</p></div>";
         $("#@uniqueId").tweet({
             join_text: "auto",
             @if (!string.IsNullOrEmpty(Model.TwitterHandle))
@@ -28,6 +28,10 @@
             count: @Model.NumberOfTweets,
             loading_text: "loading tweets...",
             template: template,
-        }).bind("loaded", function () { $(this).find("a").attr("target", "_blank"); });
+        }).bind("loaded", function() {
+            // open links in new window
+            $(this).find("a").attr("target", "_blank");
+            $("#@uniqueId li").addClass("media");
+        });
     });
 </script>
