@@ -73,23 +73,23 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="N2, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Library.2.4.9.2\lib\N2.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Library.2.4.11.1\lib\N2.dll</HintPath>
     </Reference>
     <Reference Include="N2.Extensions, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Management.2.4.9.2\lib\N2.Extensions.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Management.2.4.11.1\lib\N2.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="N2.Management, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Management.2.4.9.2\lib\N2.Management.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Management.2.4.11.1\lib\N2.Management.dll</HintPath>
     </Reference>
     <Reference Include="N2.Packaging, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Management.2.4.9.2\lib\N2.Packaging.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Management.2.4.11.1\lib\N2.Packaging.dll</HintPath>
     </Reference>
     <Reference Include="N2.Razor, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Razor.2.4.9.2\lib\NET40\N2.Razor.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Razor.2.4.11.1\lib\NET40\N2.Razor.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -100,11 +100,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite">
-      <HintPath>..\packages\System.Data.SQLite.1.0.82.0\lib\net40\System.Data.SQLite.dll</HintPath>
+    <Reference Include="System.Data.SQLite, Version=1.0.84.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.1.0.84.0\lib\net40\System.Data.SQLite.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.Linq">
-      <HintPath>..\packages\System.Data.SQLite.1.0.82.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.84.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.1.0.84.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -182,6 +184,18 @@
     <Content Include="Bootstrap\Themes\Default\Scripts\script.js" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\InvalidToken.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Tweets.cshtml" />
+    <Content Include="N2\history.txt" />
+    <Content Include="N2\howto_develop.txt" />
+    <Content Include="N2\howto_install.txt" />
+    <Content Include="N2\license.txt" />
+    <Content Include="N2\n2_readme.txt" />
+    <Content Include="N2\upgrade.txt" />
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormCheckbox.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormFile.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormInput.cshtml" />
@@ -197,12 +211,6 @@
     <Content Include="Bootstrap\Themes\Default\Content\img\glyphicons-halflings.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\bootstrap.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.8.2.js" />
-    <Content Include="N2\history.txt" />
-    <Content Include="N2\howto_develop.txt" />
-    <Content Include="N2\howto_install.txt" />
-    <Content Include="N2\license.txt" />
-    <Content Include="N2\n2_readme.txt" />
-    <Content Include="N2\upgrade.txt" />
     <Content Include="Upload\layout-one-column.png" />
     <Content Include="Upload\layout-three-columns.png" />
     <Content Include="Upload\layout-two-columns.png" />
@@ -217,12 +225,6 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="x64\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="N2\web.config" />
     <Content Include="N2\N2.zip" />
