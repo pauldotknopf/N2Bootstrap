@@ -73,23 +73,23 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="N2, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Library.2.4.11.1\lib\N2.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Library.2.4.12.19\lib\N2.dll</HintPath>
     </Reference>
     <Reference Include="N2.Extensions, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Management.2.4.11.1\lib\N2.Extensions.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Management.2.4.12.19\lib\N2.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="N2.Management, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Management.2.4.11.1\lib\N2.Management.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Management.2.4.12.19\lib\N2.Management.dll</HintPath>
     </Reference>
     <Reference Include="N2.Packaging, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Management.2.4.11.1\lib\N2.Packaging.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Management.2.4.12.19\lib\N2.Packaging.dll</HintPath>
     </Reference>
     <Reference Include="N2.Razor, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Razor.2.4.11.1\lib\NET40\N2.Razor.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Razor.2.4.12.19\lib\NET40\N2.Razor.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -175,7 +175,6 @@
     <Compile Include="Properties\VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\SampleBootstrap.n2.xml.gz.txt" />
     <Content Include="Bootstrap\notes.txt" />
     <Content Include="Bootstrap\Themes\Default\Content\img\ico-twitter.png" />
     <Content Include="Bootstrap\Themes\Default\preview.png" />
@@ -226,11 +225,11 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="N2\web.config" />
     <Content Include="N2\N2.zip" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="N2\web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bootstrap\Themes\Metro\" />
@@ -239,7 +238,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\n2_host.config" />
+    <Content Include="App_Data\n2_host.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bootstrap\Themes\Default\Views\Web.config" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\Error.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\_Layout.cshtml" />
@@ -313,7 +314,6 @@
     <Content Include="Bootstrap\Themes\Default\Content\site.less" />
     <Content Include="Bootstrap\Themes\Default\Content\site-responsive.less" />
     <Content Include="Bootstrap\Themes\Default\Content\theme-variables.less" />
-    <Content Include="App_Data\SampleBootstrap.n2.xml.gz" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\SubNavigation.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\SubNavigation.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\FreeForm\Index.cshtml" />

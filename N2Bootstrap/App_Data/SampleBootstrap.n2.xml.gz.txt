@@ -1,2 +1,0 @@
-<img src="../../Bootstrap/Themes/Default/preview.png" style="float:left;"/>
-<b>Sample Bootstrap</b> with demo of functionality.
