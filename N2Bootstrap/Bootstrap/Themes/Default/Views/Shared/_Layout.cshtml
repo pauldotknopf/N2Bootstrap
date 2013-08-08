@@ -16,7 +16,6 @@
     }
 </head>
 <body>
-    @*@{ Html.ControlPanel().Configure(cp => { cp.IncludeJQuery = false; }).Render(); }*@
     <header id="header">@{ Html.RenderPartial("LayoutPartials/Header"); }</header>
     <section id="main-before">@{ Html.RenderPartial("Zones/BeforeMain"); }</section>
     <section id="main" class="layout-@(ViewContext.TempData["layout.columns"].ToString().ToLower())">
@@ -36,5 +35,6 @@
         </div>
     </div>
     @Cassette.Views.Bundles.RenderScripts()
+    @{ Html.ControlPanel().Configure(cp => { cp.IncludeJQuery = false; }).Render(); }
 </body>
 </html>
