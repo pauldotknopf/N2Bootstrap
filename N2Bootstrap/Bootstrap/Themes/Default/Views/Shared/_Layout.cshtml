@@ -1,6 +1,4 @@
-﻿@using N2.Web
-@using N2Bootstrap.Library
-<!doctype html>
+﻿<!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
@@ -18,7 +16,7 @@
     }
 </head>
 <body>
-    @{ Html.ControlPanel().Configure(cp => { cp.IncludeJQuery = false; }).Render(); }
+    @*@{ Html.ControlPanel().Configure(cp => { cp.IncludeJQuery = false; }).Render(); }*@
     <header id="header">@{ Html.RenderPartial("LayoutPartials/Header"); }</header>
     <section id="main-before">@{ Html.RenderPartial("Zones/BeforeMain"); }</section>
     <section id="main" class="layout-@(ViewContext.TempData["layout.columns"].ToString().ToLower())">
@@ -37,5 +35,6 @@
             </div>
         </div>
     </div>
+    @Cassette.Views.Bundles.RenderScripts()
 </body>
 </html>
