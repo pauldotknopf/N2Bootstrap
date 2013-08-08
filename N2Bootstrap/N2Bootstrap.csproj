@@ -71,25 +71,31 @@
       <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="N2, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="N2, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Library.2.4.12.19\lib\N2.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Library.2.5.2.1\lib\N2.dll</HintPath>
     </Reference>
-    <Reference Include="N2.Extensions, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="N2.Extensions, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Management.2.4.12.19\lib\N2.Extensions.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Management.2.5.2.1\lib\N2.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="N2.Management, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Management.2.4.12.19\lib\N2.Management.dll</HintPath>
+    <Reference Include="N2.IoC.Windsor3">
+      <HintPath>..\packages\N2CMS.Management.2.5.2.1\lib\N2.IoC.Windsor3.dll</HintPath>
     </Reference>
-    <Reference Include="N2.Packaging, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="N2.Management, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Management.2.4.12.19\lib\N2.Packaging.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Management.2.5.2.1\lib\N2.Management.dll</HintPath>
     </Reference>
-    <Reference Include="N2.Razor, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="N2.Packaging, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\N2CMS.Razor.2.4.12.19\lib\NET40\N2.Razor.dll</HintPath>
+      <HintPath>..\packages\N2CMS.Management.2.5.2.1\lib\N2.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="N2.Razor, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\N2CMS.Razor.2.5.2.1\lib\NET40\N2.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="N2.ReusableParts">
+      <HintPath>..\packages\N2CMS.Management.2.5.2.1\lib\N2.ReusableParts.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -225,11 +231,11 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="N2\web.config" />
     <Content Include="N2\N2.zip" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="N2\web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bootstrap\Themes\Metro\" />
