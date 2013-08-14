@@ -221,11 +221,9 @@
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.9.1.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.9.1.min.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.form.js" />
-    <Content Include="Bootstrap\Themes\Default\Scripts\jquery.tweet.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\less.min.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\script.js" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\InvalidToken.cshtml" />
-    <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Tweets.cshtml" />
     <Content Include="N2\history.txt" />
     <Content Include="N2\howto_develop.txt" />
     <Content Include="N2\howto_install.txt" />
@@ -239,6 +237,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Bootstrap\Themes\Default\Views\LanguageIntersection\Index.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPage\Index.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\StartPage\Index.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\StartPage\NotFound.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPage\Redirect.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPart\Index.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPart\GMap.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPart\Hyperlink.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPart\ImageAndText.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPart\ImageFloat.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPart\Partials\GMapAddress.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPart\Partials\GMapCoordinate.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Views\ContentPart\YouTube.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormCheckbox.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormFile.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormInput.cshtml" />
@@ -274,7 +285,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Bootstrap\Themes\Metro\" />
+    <Folder Include="Bootstrap\Themes\Metro\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

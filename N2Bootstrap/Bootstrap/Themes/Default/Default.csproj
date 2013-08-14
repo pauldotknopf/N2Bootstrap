@@ -184,7 +184,6 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.form.js" />
-    <Content Include="Scripts\jquery.tweet.js" />
     <Content Include="Scripts\jquery.validate.bootstrap.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -192,6 +191,19 @@
     <Content Include="Scripts\script.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\LanguageIntersection\Index.cshtml" />
+    <Content Include="Views\ContentPage\Index.cshtml" />
+    <Content Include="Views\ContentPage\Redirect.cshtml" />
+    <Content Include="Views\ContentPart\GMap.cshtml" />
+    <Content Include="Views\ContentPart\Hyperlink.cshtml" />
+    <Content Include="Views\ContentPart\ImageAndText.cshtml" />
+    <Content Include="Views\ContentPart\ImageFloat.cshtml" />
+    <Content Include="Views\ContentPart\Index.cshtml" />
+    <Content Include="Views\ContentPart\Partials\GMapAddress.cshtml" />
+    <Content Include="Views\ContentPart\Partials\GMapCoordinate.cshtml" />
+    <Content Include="Views\ContentPart\YouTube.cshtml" />
+    <Content Include="Views\StartPage\Index.cshtml" />
+    <Content Include="Views\StartPage\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

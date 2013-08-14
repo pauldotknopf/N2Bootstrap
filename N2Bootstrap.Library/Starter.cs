@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using N2.Definitions.Runtime;
 using N2.Engine;
 using N2.Plugin;
 using N2.Web;
@@ -15,6 +16,17 @@ namespace N2Bootstrap.Library
             RegisterRoutes(RouteTable.Routes, engine);
             RegisterControllerFactory(ControllerBuilder.Current, engine);
             RegisterViewEngines(ViewEngines.Engines);
+            RegisterViewTemplates(engine);
+        }
+
+        /// <summary>
+        /// Gets the engine to look in the content types view forlder for dynamic templates.
+        /// </summary>
+        /// <param name="engine"></param>
+        private void RegisterViewTemplates(IEngine engine)
+        {
+            engine.RegisterViewTemplates<ContentPageController>()
+                .Add<ContentPartController>();
         }
 
         public static void RegisterControllerFactory(ControllerBuilder controllerBuilder, IEngine engine)

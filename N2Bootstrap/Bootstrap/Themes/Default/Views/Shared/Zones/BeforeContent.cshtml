@@ -2,9 +2,11 @@
     Html.DroppableZone("BeforeContent").Title("Before Content").Render();
     Html.RenderPartial("LayoutPartials/Breadcrumb");
     var showPageTitle = true;
-    if (Content.Current.Item is N2Bootstrap.Library.Models.ContentPage)
+    
+    var page = (Content.Current.Item as N2Bootstrap.Library.Models.ContentPage);
+    if (page != null)
     {
-        showPageTitle = (Content.Current.Item as N2Bootstrap.Library.Models.ContentPage).ShowPageTitle;
+        showPageTitle = page.ShowPageTitle;
     }
 }
 @if (showPageTitle)
