@@ -7,7 +7,7 @@ using N2.Details;
 
 namespace N2Bootstrap.Library.Models
 {
-    [PartDefinition("Tweets", IconUrl = "{ThemesUrl}/Default/Content/Img/ico-twitter.png")]
+    [PartDefinition("Tweets", IconUrl = "{ThemesUrl}/Default/Content/images/ico-twitter.png")]
     public class Tweets : SidebarPart
     {
         [EditableTextBox(Title = "Twitter handle", HelpTitle = "Leave empty if using a query.", SortOrder = 200)]
