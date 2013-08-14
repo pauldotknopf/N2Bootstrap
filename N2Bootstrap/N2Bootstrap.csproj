@@ -212,10 +212,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bootstrap\notes.txt" />
-    <Content Include="Bootstrap\Themes\Default\Content\img\ico-twitter.png" />
+    <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Bootstrap\Themes\Default\Content\images\glyphicons-halflings.png" />
+    <Content Include="Bootstrap\Themes\Default\Content\images\ico-twitter.png" />
     <Content Include="Bootstrap\Themes\Default\preview.png" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\bootstrap.min.js" />
+    <None Include="Bootstrap\Themes\Default\Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.9.1.js" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.9.1.min.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.form.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.tweet.js" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\less.min.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\script.js" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\InvalidToken.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Tweets.cshtml" />
@@ -231,6 +238,7 @@
     <Content Include="x86\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.9.1.min.map" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormCheckbox.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormFile.cshtml" />
     <None Include="Bootstrap\Themes\Default\Views\Shared\TokenTemplates\FormInput.cshtml" />
@@ -242,10 +250,7 @@
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.validate.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Bootstrap\Themes\notes.txt" />
-    <Content Include="Bootstrap\Themes\Default\Content\img\glyphicons-halflings-white.png" />
-    <Content Include="Bootstrap\Themes\Default\Content\img\glyphicons-halflings.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\bootstrap.js" />
-    <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.8.2.js" />
     <Content Include="Upload\layout-one-column.png" />
     <Content Include="Upload\layout-three-columns.png" />
     <Content Include="Upload\layout-two-columns.png" />
