@@ -7,6 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N2Bootstrap.Library", "N2Bo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{43476893-4D8B-43CD-9AE6-C6697F81D7AD}"
 	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
@@ -17,6 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Build\N2Bootstrap.Library.nuspec = Build\N2Bootstrap.Library.nuspec
 		Build\N2Bootstrap.nuspec = Build\N2Bootstrap.nuspec
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Default", "N2Bootstrap\Bootstrap\Themes\Default\Default.csproj", "{61FF2570-EBEC-4956-AD9A-BE60408C5212}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Themes", "Themes", "{26134AFB-CB78-45F2-9B36-0161AAB2DE86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,8 +43,15 @@ Global
 		{3B87C721-0167-4516-8824-5CF2499F97DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B87C721-0167-4516-8824-5CF2499F97DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B87C721-0167-4516-8824-5CF2499F97DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FF2570-EBEC-4956-AD9A-BE60408C5212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FF2570-EBEC-4956-AD9A-BE60408C5212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FF2570-EBEC-4956-AD9A-BE60408C5212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FF2570-EBEC-4956-AD9A-BE60408C5212}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{61FF2570-EBEC-4956-AD9A-BE60408C5212} = {26134AFB-CB78-45F2-9B36-0161AAB2DE86}
 	EndGlobalSection
 EndGlobal
