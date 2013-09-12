@@ -234,7 +234,6 @@
     <Content Include="Views\Shared\PartTemplates\SubNavigation.cshtml" />
     <Content Include="Views\Shared\PartTemplates\Tabs.cshtml" />
     <Content Include="Views\Shared\PartTemplates\TextPart.cshtml" />
-    <Content Include="Views\Shared\PartTemplates\Tweets.cshtml" />
     <Content Include="Views\Shared\SubNavigation.cshtml" />
     <Content Include="Views\Shared\TokenTemplates\FormCheckbox.cshtml" />
     <Content Include="Views\Shared\TokenTemplates\FormFile.cshtml" />
