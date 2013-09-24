@@ -1,14 +1,18 @@
-﻿@using Cassette.Stylesheets
+﻿@using System.Web.Mvc.Html
+@using Cassette.Stylesheets
+@using Cassette.Views
 @using N2
 @using N2.Web
+@using N2.Web.Mvc.Html
 @using N2.Web.UI.WebControls
 @using N2Bootstrap.Library
 @using N2Bootstrap.Library.Models
 @{
-    Defaults.Columns columns = Defaults.Columns.TwoColumn;
-    if (N2.Context.CurrentPage != null && N2.Context.CurrentPage is ContentPage)
+    var columns = Defaults.Columns.TwoColumn;
+    var contentPage = N2.Context.CurrentPage as ContentPage;
+    if (contentPage != null)
     {
-        columns = (N2.Context.CurrentPage as ContentPage).Columns;
+        columns = contentPage.Columns;
     }
     ViewContext.TempData["layout.columns"] = columns;
     Layout = Url.ThemedContent(string.Format("~/Views/Shared/LayoutColumns/_{0}.cshtml", Enum.GetName(typeof(Defaults.Columns), columns)));

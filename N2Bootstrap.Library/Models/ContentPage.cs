@@ -13,8 +13,7 @@ namespace N2Bootstrap.Library.Models
     ///  * It's the base for "template first" definitions located in /dinamico/default/views/contentpages/
     /// </summary>
     [PageDefinition("Content Page")]
-    [RestrictParents(typeof(IStructuralPage))]
-    [NotVersionable]
+    [WithEditableTemplateSelection(ContainerName = Defaults.Containers.Metadata)]
     public class ContentPage : PageModelBase, IContentPage, IStructuralPage
     {
         #region Content

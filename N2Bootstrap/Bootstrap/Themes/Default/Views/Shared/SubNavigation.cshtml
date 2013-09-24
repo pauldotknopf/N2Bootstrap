@@ -1,7 +1,4 @@
-﻿@using N2;
-@using N2.Collections
-@using N2.Edit
-@model N2Bootstrap.Library.ViewModels.INavigationModel
+﻿@model N2Bootstrap.Library.ViewModels.INavigationModel
 @(Html.Raw(Model.WrapInWell ? "<div class=\"well\">" : ""))
 @{
     var currentItem = Model.CurrentItem ?? Content.Current.Page;

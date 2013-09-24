@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Cassette;
+using Cassette.IO;
 using N2.Web;
 
 namespace N2Bootstrap.Library.Cassette
@@ -18,15 +19,25 @@ namespace N2Bootstrap.Library.Cassette
 
         private IUrlGenerator _inner = null;
 
-        public UrlGenerator(IUrlModifier urlModifier, string cassetteHandlerPrefix)
+        public UrlGenerator(IUrlModifier urlModifier, IDirectory sourceDirectory, string cassetteHandlerPrefix)
         {
             _cassetteHandlerPrefix = cassetteHandlerPrefix;
-            _inner = Activator.CreateInstance(_internalUrlGenerator, urlModifier, cassetteHandlerPrefix) as IUrlGenerator;
+            _inner = Activator.CreateInstance(_internalUrlGenerator, urlModifier, sourceDirectory, cassetteHandlerPrefix) as IUrlGenerator;
+        }
+
+        public string CreateRawFileUrl(string filename)
+        {
+            return _inner.CreateRawFileUrl(filename);
         }
 
         public string CreateAbsolutePathUrl(string applicationRelativePath)
         {
             return _inner.CreateAbsolutePathUrl(applicationRelativePath);
+        }
+
+        public string CreateCachedFileUrl(string filename)
+        {
+            return _inner.CreateCachedFileUrl(filename);
         }
 
         public string CreateAssetUrl(IAsset asset)

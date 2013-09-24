@@ -19,8 +19,8 @@ namespace N2Bootstrap.Library.Models
         InstallerVisibility=InstallerHint.PreferredStartPage,
         IconUrl="{IconsUrl}/world_go.png")]
     [RestrictParents(typeof(IRootPage))]
-    [RecursiveContainer("SiteContainer", 1000, RequiredPermission = Permission.Administer)]
-    [FieldSetContainer(Defaults.Containers.Site, "Site", 1000, ContainerName = "SiteContainer")]
+    [TabContainer(Defaults.Containers.Site, "Languages", 1000, ContainerName = "LanguagesContainer")]
+    [RecursiveContainer("LanguagesContainer", 1000, RequiredPermission = Permission.Administer)]
 	public class LanguageIntersection : PageModelBase, ISitesSource, IRedirect
 	{
 		#region ISitesSource Members
