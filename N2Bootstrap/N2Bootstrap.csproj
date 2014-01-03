@@ -25,6 +25,7 @@
     <ZipBootstrap>false</ZipBootstrap>
     <MSBuildCommunityTasksPath>$(SolutionDir)\.build</MSBuildCommunityTasksPath>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,11 +46,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.Core">
+      <HintPath>..\packages\BundleTransformer.Core.1.8.17\lib\net40\BundleTransformer.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.Less">
+      <HintPath>..\packages\BundleTransformer.Less.1.8.14\lib\net40\BundleTransformer.Less.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearScript">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.1.0.0\lib\net40\ClearScript.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Core.1.0.0\lib\net40\JavaScriptEngineSwitcher.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.V8">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.1.0.0\lib\net40\JavaScriptEngineSwitcher.V8.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net">
       <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
@@ -86,6 +106,9 @@
     <Reference Include="N2.Search.Lucene">
       <HintPath>..\packages\N2CMS.Search.Lucene.2.5.10\lib\N2.Search.Lucene.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
@@ -114,6 +137,9 @@
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.2\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -144,6 +170,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bootstrap\notes.txt" />
+    <Content Include="Bootstrap\Themes\Default\Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Bootstrap\Themes\Default\Content\img\ico-twitter.png" />
     <Content Include="Bootstrap\Themes\Default\preview.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.form.js" />
@@ -158,6 +188,61 @@
     <Content Include="Bootstrap\Themes\Default\Scripts\script.js" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\InvalidToken.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Tweets.cshtml" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\alerts.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\badges.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\bootstrap.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\breadcrumbs.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\button-groups.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\buttons.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\carousel.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\close.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\code.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\component-animations.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\dropdowns.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\forms.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\glyphicons.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\grid.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\input-groups.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\jumbotron.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\labels.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\list-group.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\media.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\mixins.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\modals.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\navbar.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\navs.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\normalize.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\pager.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\pagination.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\panels.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\popovers.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\print.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\progress-bars.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\responsive-utilities.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\scaffolding.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\tables.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\theme.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\thumbnails.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\tooltip.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\type.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\utilities.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\variables.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\bootstrap\wells.less" />
+    <Content Include="Bootstrap\Themes\Default\Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Bootstrap\Themes\Default\Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Bootstrap\Themes\Default\Content\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="ClearScript.V8\ClearScriptV8-32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ClearScript.V8\ClearScriptV8-64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ClearScript.V8\v8-ia32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ClearScript.V8\v8-x64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="N2\history.txt" />
     <Content Include="N2\howto_develop.txt" />
     <Content Include="N2\howto_install.txt" />
@@ -185,12 +270,6 @@
     <Content Include="Bootstrap\Themes\Default\Content\img\glyphicons-halflings.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\bootstrap.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.8.2.js" />
-    <Content Include="Upload\layout-one-column.png" />
-    <Content Include="Upload\layout-three-columns.png" />
-    <Content Include="Upload\layout-two-columns.png" />
-    <Content Include="Upload\n2logo.png" />
-    <Content Include="Upload\slide-01.jpg" />
-    <Content Include="Upload\slide-02.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -205,11 +284,10 @@
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bootstrap\Themes\Metro\" />
-    <Folder Include="Views\Home\" />
+    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -226,47 +304,6 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Head.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Header.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Content\theme.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\accordion.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\alerts.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\bootstrap.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\breadcrumbs.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\button-groups.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\buttons.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\carousel.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\close.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\code.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\component-animations.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\dropdowns.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\forms.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\grid.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\hero-unit.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\labels-badges.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\layouts.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\media.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\mixins.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\modals.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\navbar.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\navs.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\pager.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\pagination.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\popovers.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\progress-bars.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\reset.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\responsive-1200px-min.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\responsive-767px-max.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\responsive-768px-979px.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\responsive-navbar.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\responsive-utilities.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\responsive.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\scaffolding.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\sprites.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\tables.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\thumbnails.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\tooltip.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\type.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\utilities.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\variables.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\less\wells.less" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PageTemplates\ContentPage.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\LayoutPartials\Content.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\_ViewStart.cshtml" />
