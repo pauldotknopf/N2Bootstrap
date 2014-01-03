@@ -74,6 +74,17 @@ namespace N2Bootstrap.Library.Cassette
 
             return parentBundle as Bundle;
         }
+
+
+        public string CreateCachedFileUrl(string filename)
+        {
+            return _inner.CreateCachedFileUrl(filename);
+        }
+
+        public string CreateRawFileUrl(string filename)
+        {
+            return _inner.CreateRawFileUrl(filename);
+        }
     }
 }
 

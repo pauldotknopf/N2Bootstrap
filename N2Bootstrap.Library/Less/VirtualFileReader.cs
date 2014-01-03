@@ -42,5 +42,11 @@ namespace N2Bootstrap.Library.Less
                 }
             }
         }
+
+
+        public bool UseCacheDependencies
+        {
+            get { return true; }
+        }
     }
 }
