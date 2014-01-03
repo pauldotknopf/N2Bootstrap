@@ -45,26 +45,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxMin, Version=5.6.5100.19196, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AjaxMin.5.6.5100.19204\lib\net40\AjaxMin.dll</HintPath>
-    </Reference>
-    <Reference Include="Cassette, Version=2.3.0.21958, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cassette.2.3.0\lib\net40-client\Cassette.dll</HintPath>
-    </Reference>
-    <Reference Include="Cassette.Aspnet, Version=2.3.0.21959, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cassette.Aspnet.2.3.0\lib\net40\Cassette.Aspnet.dll</HintPath>
-    </Reference>
-    <Reference Include="Cassette.Views, Version=2.3.0.21959, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cassette.Views.2.3.0\lib\net40\Cassette.Views.dll</HintPath>
-    </Reference>
-    <Reference Include="dotless.ClientOnly, Version=1.4.0.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DotlessClientOnly.1.4.0.0\lib\dotless.ClientOnly.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -166,7 +146,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CassetteConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\VersionInfo.cs" />
   </ItemGroup>

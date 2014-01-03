@@ -4,10 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web.Hosting;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using Cassette;
-using Cassette.Stylesheets;
 using N2.Edit.Workflow;
 using N2.Plugin;
 using N2.Web;
@@ -48,31 +45,7 @@ namespace N2Bootstrap.Library.Details
             validator.Display = ValidatorDisplay.None;
             validator.ServerValidate += (s, e) =>
             {
-                var control = (s as CustomValidator);
-                var themeEditor = control.Parent.Controls.Cast<Control>().Where(x => x is ItemEditor).Cast<ItemEditor>().First();
-                var resourcePlugins = N2.Context.Current.Resolve<IPluginFinder>()
-                                        .GetPlugins<BootstrapResourceAttribute>()
-                                        .Where(x => x.ResourceType == BootstrapResourceAttribute.ResourceTypeEnum.CssOrLess)
-                                        .ToList();
-                themeEditor.UpdateObject(new CommandContext(themeEditor.Definition,
-                            themeEditor.CurrentItem,
-                            "theme-editor",
-                            N2.Context.Current.RequestContext.User));
-                var variables = Less.ThemedLessEngine.GetThemeVariables(themeEditor.CurrentItem as Models.BootstrapThemeConfiguration);
-                foreach (var resource in resourcePlugins)
-                {
-                    var themedLocation = Less.ThemedLessEngine.GetThemedFile(Path.Combine(Url.ResolveTokens("{ThemesUrl}/Default/"), resource.Name), themeEditor.ID);
-                    try
-                    {
-                        Less.ThemedLessEngine.CompileLess(themedLocation, null, themeEditor.ID, variables);
-                    }
-                    catch (Exception ex)
-                    {
-                        control.ErrorMessage = "Error with theme \"" + themeEditor.ID + "\":    " + ex.Message;
-                        e.IsValid = false;
-                        return;
-                    }
-                }
+                // todo: validate less
                 e.IsValid = true;
             };
             themeTabPanel.Controls.Add(validator);
@@ -100,8 +73,7 @@ namespace N2Bootstrap.Library.Details
                     N2.Context.Current.RequestContext.User));
             }
 
-            global::Cassette.Aspnet.CassetteHttpModule.Host.RequestContainer.Resolve<IBundleCacheRebuilder>()
-                  .RebuildCache();
+            // todo: refresh less bundle cache
 
             return true;
         }
@@ -137,8 +109,9 @@ namespace N2Bootstrap.Library.Details
         protected virtual void OnChildEditorInit(object sender, EventArgs e)
         {
             var itemEditor = sender as ItemEditor;
-            if (itemEditor != null)
-                itemEditor.CurrentItem = Less.ThemedLessEngine.GetOrCreateThemeConfiguration(itemEditor.ID.ToLower());
+            // todo: set the theme configuration
+            //if (itemEditor != null)
+            //    itemEditor.CurrentItem = Less.ThemedLessEngine.GetOrCreateThemeConfiguration(itemEditor.ID.ToLower());
         }
     }
 }

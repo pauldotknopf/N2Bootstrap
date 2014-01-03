@@ -33,26 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxMin, Version=5.6.5100.19196, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AjaxMin.5.6.5100.19204\lib\net40\AjaxMin.dll</HintPath>
-    </Reference>
-    <Reference Include="Cassette, Version=2.3.0.21958, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cassette.2.3.0\lib\net40-client\Cassette.dll</HintPath>
-    </Reference>
-    <Reference Include="Cassette.Aspnet, Version=2.3.0.21959, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cassette.Aspnet.2.3.0\lib\net40\Cassette.Aspnet.dll</HintPath>
-    </Reference>
-    <Reference Include="Cassette.Views, Version=2.3.0.21959, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cassette.Views.2.3.0\lib\net40\Cassette.Views.dll</HintPath>
-    </Reference>
-    <Reference Include="dotless.ClientOnly, Version=1.4.0.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DotlessClientOnly.1.4.0.0\lib\dotless.ClientOnly.dll</HintPath>
-    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -111,27 +91,10 @@
     <Compile Include="Adapters\ModelAdapter.cs" />
     <Compile Include="Adapters\ModelPartsAdapter.cs" />
     <Compile Include="Adapters\MvcAdapter.cs" />
-    <Compile Include="CassetteConfiguration.cs" />
-    <Compile Include="Cassette\CassetteIoCConfiguation.cs" />
-    <Compile Include="Cassette\CassetteSettingsConfiguration.cs" />
-    <Compile Include="Cassette\CassetteVirtualDirectory.cs" />
-    <Compile Include="Cassette\CassetteVirtualFile.cs" />
-    <Compile Include="Cassette\Less\CassetteLessCompiler.cs" />
-    <Compile Include="Cassette\Less\LessBundlePipelineModifier.cs" />
-    <Compile Include="Cassette\Less\LessBundleProcessor.cs" />
-    <Compile Include="Cassette\Less\LessCompileAsset.cs" />
     <Compile Include="Controllers\FreeFormController.cs" />
     <Compile Include="Details\EditableLessVariable.cs" />
     <Compile Include="Details\EditableThemeConfigurations.cs" />
     <Compile Include="DroppableZoneHelperExtensions.cs" />
-    <Compile Include="Less\Importer.cs" />
-    <Compile Include="Less\ThemedLessEngine.cs" />
-    <Compile Include="Cassette\Less\ThemedLessHandler.cs" />
-    <Compile Include="Less\ThemedLessLogger.cs" />
-    <Compile Include="Less\VariableOverridePlugin.cs" />
-    <Compile Include="Less\VariableOverridePluginConfigurator.cs" />
-    <Compile Include="Less\VirtualFileReader.cs" />
-    <Compile Include="Cassette\UrlGenerator.cs" />
     <Compile Include="Controllers\LanguageIntersectionController.cs" />
     <Compile Include="Controllers\SharedPagesController.cs" />
     <Compile Include="Controllers\SharedPartsController.cs" />

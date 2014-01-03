@@ -5,8 +5,6 @@ using System.Net;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Security;
-using Cassette.Stylesheets;
-using Cassette.Views;
 using N2;
 using N2.Definitions;
 using N2.Engine.Globalization;
@@ -34,74 +32,11 @@ namespace N2Bootstrap.Library.Controllers
 			return View(similarPages);
 		}
 
-		[ContentOutputCache]
-		public ActionResult SiteMap()
-		{
-			var start = this.Content.Traverse.StartPage;
-			string content = Tree.From(start)
-				.Filters(N2.Content.Is.Accessible())
-				.ExcludeRoot(true).ToString();
-			return Content("<ul>" 
-				+ "<li>" + Link.To(start) + "</li>"
-				+ content + "</ul>");
-		}
-
-        public ActionResult DefaultCss()
-        {
-            var content = string.Empty;
-            Bundles.Reference("Default-css");
-            foreach (var url in Bundles.GetReferencedBundleUrls<StylesheetBundle>())
-            {
-                var response = WebRequest.Create(N2.Web.Url.ServerUrl +url).GetResponse();
-                using(var sr = new StreamReader(response.GetResponseStream()))
-                {
-                    content += sr.ReadToEnd();
-                }
-            }
-            return Content(content, "text/css");
-        }
-
-		public ActionResult Search(string q)
-		{
-			if (string.IsNullOrWhiteSpace(q))
-				return Content("<ul><li>A search term is required</li></ul>");
-
-			var hits = GetSearchResults(CurrentPage ?? this.Content.Traverse.StartPage, q, 50);
-
-			StringBuilder results = new StringBuilder();
-			foreach (var hit in hits)
-			{
-				results.Append("<li>").Append(Link.To(hit)).Append("</li>");
-			}
-			
-			if (results.Length == 0)
-				return Content("<ul><li>No hits</li></ul>");
-
-			return Content("<ul>" + results + "</ul>");
-		}
-
 		private IEnumerable<ContentItem> GetSearchResults(ContentItem root, string text, int take)
 		{
 			var query = Query.For(text).Below(root).ReadableBy(User, Roles.GetRolesForUser).Except(Query.For(typeof(ISystemNode)));
 			var hits = Engine.Resolve<ITextSearcher>().Search(query).Hits.Select(h => h.Content);
 			return hits;
-		}
-
-		[ContentOutputCache]
-		public ActionResult Translations(int id)
-		{
-			StringBuilder sb = new StringBuilder();
-
-			var item = Engine.Persister.Get(id);
-			var lg = Engine.Resolve<LanguageGatewaySelector>().GetLanguageGateway(item);
-			var translations = lg.FindTranslations(item);
-			foreach (var language in translations)
-				sb.Append("<li>").Append(Link.To(language).Text(lg.GetLanguage(language).LanguageTitle)).Append("</li>");
-
-			if (sb.Length == 0)
-				return Content("<ul><li>This page is not translated</li></ul>");
-
-			return Content("<ul>" + sb + "</ul>");
 		}
 	}
 }
