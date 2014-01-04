@@ -31,52 +31,17 @@ namespace N2Bootstrap.Library.Less
 
         class PathResolver : IRelativePathResolver
         {
+            private IRelativePathResolver _inner;
+
+            public PathResolver()
+            {
+                _inner = new CommonRelativePathResolver(BundleTransformerContext.Current.GetVirtualFileSystemWrapper());
+            }
+
             public string ResolveRelativePath(string basePath, string relativePath)
             {
-                return relativePath;
-            }
-        }
-
-        class FileSystem : IVirtualFileSystemWrapper
-        {
-            public bool FileExists(string virtualPath)
-            {
-                throw new NotImplementedException();
-            }
-
-            public System.Web.Caching.CacheDependency GetCacheDependency(string virtualPath, string[] virtualPathDependencies, DateTime utcStart)
-            {
-                throw new NotImplementedException();
-            }
-
-            public string GetCacheKey(string virtualPath)
-            {
-                throw new NotImplementedException();
-            }
-
-            public byte[] GetFileBinaryContent(string virtualPath)
-            {
-                throw new NotImplementedException();
-            }
-
-            public System.IO.Stream GetFileStream(string virtualPath)
-            {
-                throw new NotImplementedException();
-            }
-
-            public string GetFileTextContent(string virtualPath)
-            {
-                throw new NotImplementedException();
-            }
-
-            public bool IsTextFile(string virtualPath, int sampleSize, out Encoding encoding)
-            {
-                throw new NotImplementedException();
-            }
-
-            public string ToAbsolutePath(string virtualPath)
-            {
-                throw new NotImplementedException();
+                var result = _inner.ResolveRelativePath(basePath, relativePath);
+                return result;
             }
         }
     }
