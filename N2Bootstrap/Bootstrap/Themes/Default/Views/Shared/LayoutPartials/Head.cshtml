@@ -28,13 +28,13 @@
             theme = "default";
         }
         theme = theme.ToLower();
-        // TODO: Reference bundle resources
-        //Bundles.Reference(theme + "-css");
-        //if (isResponsive)
-        //{
-        //    Bundles.Reference(theme + "-responsive-css");
-        //}
-        //Bundles.Reference(theme + "-js");
+        
+        @Styles.RenderFormat("<link href=\"{0}?theme=" + Url.Encode(theme) + "\" rel=\"stylesheet\" type=\"text/css\" />", "~/themed-styles-" + theme)
+        if (isResponsive)
+        {
+            @Styles.RenderFormat("<link href=\"{0}?theme=" + Url.Encode(theme) + "\" rel=\"stylesheet\" type=\"text/css\" />", "~/themed-styles-resonsive-" + theme)
+        }
+        @Scripts.Render("~/themed-scripts-" + theme)
     }
 }
 

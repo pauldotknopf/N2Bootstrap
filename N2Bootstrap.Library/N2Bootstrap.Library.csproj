@@ -127,6 +127,7 @@
     <Compile Include="Details\EditableMultipleItemProviderSelectionAttribute.cs" />
     <Compile Include="HtmlHelpers.cs" />
     <Compile Include="Initialization.cs" />
+    <Compile Include="Less\LessHandler.cs" />
     <Compile Include="Less\LessTranslater.cs" />
     <Compile Include="Models\BootstrapThemeConfiguration.cs" />
     <Compile Include="Models\Columns.cs" />
