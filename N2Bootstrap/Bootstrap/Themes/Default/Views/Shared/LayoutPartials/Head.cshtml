@@ -32,7 +32,7 @@
         @Styles.RenderFormat("<link href=\"{0}?theme=" + Url.Encode(theme) + "\" rel=\"stylesheet\" type=\"text/css\" />", "~/themed-styles-" + theme)
         if (isResponsive)
         {
-            @Styles.RenderFormat("<link href=\"{0}?theme=" + Url.Encode(theme) + "\" rel=\"stylesheet\" type=\"text/css\" />", "~/themed-styles-resonsive-" + theme)
+            @Styles.RenderFormat("<link href=\"{0}?theme=" + Url.Encode(theme) + "\" rel=\"stylesheet\" type=\"text/css\" />", "~/themed-styles-responsive-" + theme)
         }
         @Scripts.Render("~/themed-scripts-" + theme)
     }
