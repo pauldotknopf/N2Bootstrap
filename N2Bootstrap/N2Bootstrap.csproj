@@ -184,6 +184,7 @@
     <Content Include="Bootstrap\Themes\Default\Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Bootstrap\Themes\Default\Content\img\ico-twitter.png" />
     <Content Include="Bootstrap\Themes\Default\preview.png" />
+    <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.10.2.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.form.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\jquery.tweet.js" />
     <Content Include="Bootstrap\Themes\Default\Scripts\script.js" />
@@ -270,7 +271,6 @@
     <Content Include="Bootstrap\Themes\Default\Content\img\glyphicons-halflings-white.png" />
     <Content Include="Bootstrap\Themes\Default\Content\img\glyphicons-halflings.png" />
     <Content Include="Bootstrap\Themes\Default\Scripts\bootstrap.js" />
-    <Content Include="Bootstrap\Themes\Default\Scripts\jquery-1.8.2.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -327,7 +327,6 @@
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\Hero.cshtml" />
     <Content Include="App_Data\n2_host.config.transform" />
     <Content Include="Bootstrap\Themes\Default\Content\site.less" />
-    <Content Include="Bootstrap\Themes\Default\Content\site-responsive.less" />
     <Content Include="Bootstrap\Themes\Default\Content\theme-variables.less" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\PartTemplates\SubNavigation.cshtml" />
     <Content Include="Bootstrap\Themes\Default\Views\Shared\SubNavigation.cshtml" />

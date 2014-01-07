@@ -13,7 +13,6 @@ namespace N2Bootstrap.Library.Resources
     {
         private string _themedResourceLocation;
         private ResourceTypeEnum _resourceType = ResourceTypeEnum.CssOrLess;    // guess?
-        private ResponsiveModeEnum _responsiveMode = ResponsiveModeEnum.Both;
         private int _sortOrder;
 
         public BootstrapResourceAttribute(string themedResourceLocation, int sortOrder = 100)
@@ -56,12 +55,6 @@ namespace N2Bootstrap.Library.Resources
             set { _resourceType = value; }
         }
 
-        public ResponsiveModeEnum ResponsiveMode
-        {
-            get { return _responsiveMode; }
-            set { _responsiveMode = value; }
-        }
-
         #endregion
 
         #region IPlugin
@@ -87,13 +80,6 @@ namespace N2Bootstrap.Library.Resources
         #endregion
 
         #region Enums
-
-        public enum ResponsiveModeEnum
-        {
-            Responsive,
-            NotResponsive,
-            Both
-        }
 
         public enum ResourceTypeEnum
         {

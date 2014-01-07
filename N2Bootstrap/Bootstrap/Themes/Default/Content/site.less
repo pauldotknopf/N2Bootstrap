@@ -1,4 +1,4 @@
-﻿@import "less/bootstrap.less";
+﻿@import "bootstrap/bootstrap.less";
 
 /*TBS has a bug with responsive navs. This fixes it.*/
 #nav {
@@ -14,8 +14,8 @@
 }
 
 #footer {
-    background-color: @wellBackground;
-    border: 1px solid darken(@wellBackground, 7%);
+    background-color: @gray-darker;
+    border: 1px solid darken(@gray-darker, 7%);
     margin-top: 50px;
     padding: 19px 0px 10px;
 
@@ -48,6 +48,16 @@
 .page-image{
 	padding:0;
 	margin:0 0 10px 0;
+}
+
+/* Unfloat the back to top link in footer */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 @import "theme.less";
