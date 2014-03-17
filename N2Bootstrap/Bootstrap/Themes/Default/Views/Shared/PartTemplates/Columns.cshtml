@@ -9,7 +9,7 @@
 <div class="clearfix row">
     @foreach (var column in Content.Current.Item.GetChildren(new TypeFilter(typeof(N2Bootstrap.Library.Models.Columns.Column))).Cast<N2Bootstrap.Library.Models.Columns.Column>())
     {
-        <div class="span@(column.NumberOfColumns)">
+        <div class="col-md-@(column.NumberOfColumns)">
             @{
                 var zone = Html.DroppableZone(column, "Column");
                 zone.Render();
